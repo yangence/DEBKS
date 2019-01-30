@@ -209,4 +209,4 @@ Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1S
 
 ## Copyright and License Information
 
-Copyright (C) 2019 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/LICENSE) file for license rights and limitations.
+Copyright (C) 2019 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/blob/master/LICENSE) file for license rights and limitations.
