@@ -6,7 +6,7 @@ DEBKS is a convenient and user-friendly program to streamline the discovery of d
 
 ## Availability
 
-DEBKS is a free software, which can be downloaded from https://github.com/yecLab/DEBKS
+DEBKS is a free software, which can be downloaded from https://github.com/yangence/DEBKS
 
 ## Prequired Softwares and Packages
 
@@ -209,4 +209,4 @@ Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1S
 
 ## Copyright and License Information
 
-Copyright (C) 2019 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/haersliu/test/blob/master/LICENSE) file for license rights and limitations.
+Copyright (C) 2019 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/LICENSE) file for license rights and limitations.
