@@ -1,4 +1,4 @@
-.PHONY: build install clean clean-build clean-pyc lint test1 test2
+.PHONY: build install clean clean-build clean-pyc lint
 
 
 help:
