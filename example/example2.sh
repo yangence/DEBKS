@@ -39,7 +39,7 @@ cat <<EOF >sample_2_SJ.txt
 ../STAR_Results/sample_2.Rep2.SJ.out.tab
 EOF
 echo 'DEBKS begin'
-python ../../DEBKS_main.py -g ./genome/hg19.fa \
+DEBKS -g ./genome/hg19.fa \
 	-s1CJ sample_1_CJ.txt -s2CJ sample_2_CJ.txt -s1SJ sample_1_SJ.txt -s2SJ sample_2_SJ.txt \
 	-gtf ./annotation/gencode.v19.annotation.gtf \
 	-o ./DEBKS_Results/ -t 10 -read single -len 100 -c 0.01 -a 10
