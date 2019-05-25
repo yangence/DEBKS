@@ -1,0 +1,34 @@
+package:
+  name: debks
+  version: "1.0.0"
+
+source:
+  path: ./src
+
+build:
+  entry_points:
+    - DEBKS=src.DEBKS_main:main
+
+requirements:
+  host:
+    - python>=3
+    - scipy>=1.2.1
+    - pysam>=0.15.2
+    - pandas>=0.24.2
+    - circexplorer2>=2.3.6
+    - star>=2.6.1
+    - samtools>=1.9
+
+  run:
+    - python>=3
+    - scipy>=1.2.1
+    - pysam>=0.15.2
+    - pandas>=0.24.2
+    - circexplorer2>=2.3.6
+    - star>=2.6.1
+    - samtools>=1.9
+
+about:
+  home: https://github.com/yangence/DEBKS
+  license: GPL3
+  summary: 'Analysis differential back-spliced in of ribo-zero RNA-seq'
