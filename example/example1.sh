@@ -67,7 +67,7 @@ STAR --runMode genomeGenerate --runThreadN 20 \
 	--genomeDir ./hg19_STAR_99
 echo 'Down'
 echo 'DEBKS begin'
-python ../../DEBKS_main.py -g ./genome/hg19.fa \
+DEBKS  -g ./genome/hg19.fa \
 	-s1 sample_1.txt -s2 sample_2.txt -STARindex ./hg19_STAR_99/ \
 	-gtf ./annotation/gencode.v19.annotation.gtf \
 	-o ./DEBKS_Results/ -t 30 -read single -len 100 -c 0.01 -a 10
