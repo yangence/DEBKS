@@ -20,6 +20,28 @@ DEBKS is a free software, which can be downloaded from https://github.com/yangen
 
 5. [CIRCexplorer2](https://circexplorer2.readthedocs.io/en/latest/tutorial/setup/#installation-and-setup)
 
+## Installation
+
+1. Install latest release using pip
+
+```
+pip install DEBKS
+```
+
+2. Install latest release via conda
+
+```
+conda install -c colinliuzelin DEBKS
+```
+
+3. Install latest release from source codes
+
+```
+git clone https://github.com/yangence/DEBKS.git
+cd DEBKS
+pip install -r requirements.txt
+python setup.py install
+```
 ## Required Files:
 
 Users can prepare the external files under the following instructions:
@@ -35,7 +57,7 @@ Users can prepare the external files under the following instructions:
 If raw fastq file provided, DEBKS can map reads and calcuate differential PBSI in the following command:
 
 ```bash
-python DEBKS_main.py -g genomeFasta -s1 s1File -s2 s2File  \
+DEBKS -g genomeFasta -s1 s1File -s2 s2File  \
     -STARindex STARIndexDir -gtf gtfFile -o outDir \
     -read readType -len readLength [options]*
 ```
@@ -45,17 +67,17 @@ python DEBKS_main.py -g genomeFasta -s1 s1File -s2 s2File  \
 1) s1File contains sample_1 fastq files:
 
 ```
-  Path/sample_1.Rep1.R1.fastq.gz;Path/sample_1.Rep1.R2.fastq.gz
-  Path/sample_1.Rep2.R1.fastq.gz;Path/sample_1.Rep2.R2.fastq.gz
-  Path/sample_1.Rep3.R1.fastq.gz;Path/sample_1.Rep3.R2.fastq.gz
+  ${FILEPATH}/sample_1.Rep1.R1.fastq.gz;${FILEPATH}/sample_1.Rep1.R2.fastq.gz
+  ${FILEPATH}/sample_1.Rep2.R1.fastq.gz;${FILEPATH}/sample_1.Rep2.R2.fastq.gz
+  ${FILEPATH}/sample_1.Rep3.R1.fastq.gz;${FILEPATH}/sample_1.Rep3.R2.fastq.gz
 ```
 
 2) s2File contains sample_2 fastq files:
 
 ```
-  Path/sample_2.Rep1.R1.fastq.gz;Path/sample_2.Rep1.R2.fastq.gz
-  Path/sample_2.Rep2.R1.fastq.gz;Path/sample_2.Rep2.R2.fastq.gz
-  Path/sample_2.Rep3.R1.fastq.gz;Path/sample_2.Rep3.R2.fastq.gz
+  ${FILEPATH}/sample_2.Rep1.R1.fastq.gz;${FILEPATH}/sample_2.Rep1.R2.fastq.gz
+  ${FILEPATH}/sample_2.Rep2.R1.fastq.gz;${FILEPATH}/sample_2.Rep2.R2.fastq.gz
+  ${FILEPATH}/sample_2.Rep3.R1.fastq.gz;${FILEPATH}/sample_2.Rep3.R2.fastq.gz
 ```
 
 3) Genome index built by STAR
@@ -71,7 +93,7 @@ STAR --runMode genomeGenerate --runThreadN threads \
 #### Example
 
 ```bash
-python DEBKS_main.py -g hg19.fa -s1 sample_1.txt -s2 sample_2.txt -STARindex hg19_STAR/ \
+DEBKS -g hg19.fa -s1 sample_1.txt -s2 sample_2.txt -STARindex hg19_STAR/ \
     -gtf gencode.v19.annotation.gtf -o out_test -t 40 -read pair -len 150 -c 0.1 -a 6
 ```
 
@@ -89,7 +111,7 @@ STAR ---genomeDir STARIndexDir -chimSegmentMin anchorLength \
 Then, users can employ DEBKS to calcuate differential PBSI in the following command:
 
 ```bash
-python DEBKS_main.py -g genomeFasta \
+DEBKS -g genomeFasta \
     -s1CJ s1CJFile -s2CJ s2CJFile -s1SJ s1SJFile -s2SJ s2SJFile \
     -gtf gtfFile -o outDir -read readType -len readLength [options]*
 ```
@@ -99,39 +121,39 @@ python DEBKS_main.py -g genomeFasta \
 1) File contains sample_1 chimeric junction files from STAR output:
 
 ```
-  Path/sample_1.Rep1.Chimeric.out.junction
-  Path/sample_1.Rep2.Chimeric.out.junction
-  Path/sample_1.Rep3.Chimeric.out.junction
+  ${FILEPATH}/sample_1.Rep1.Chimeric.out.junction
+  ${FILEPATH}/sample_1.Rep2.Chimeric.out.junction
+  ${FILEPATH}/sample_1.Rep3.Chimeric.out.junction
 ```
 
 2) File contains sample_2 chimeric junction files from STAR output:
 
 ```
-  Path/sample_2.Rep1.Chimeric.out.junction
-  Path/sample_2.Rep2.Chimeric.out.junction
-  Path/sample_2.Rep3.Chimeric.out.junction
+  ${FILEPATH}/sample_2.Rep1.Chimeric.out.junction
+  ${FILEPATH}/sample_2.Rep2.Chimeric.out.junction
+  ${FILEPATH}/sample_2.Rep3.Chimeric.out.junction
 ``` 
 
 3) File contains sample_1 splicing junction files from STAR output:
 
 ```
-  Path/sample_1.Rep1.SJ.out.tab
-  Path/sample_1.Rep2.SJ.out.tab
-  Path/sample_1.Rep3.SJ.out.tab
+  ${FILEPATH}/sample_1.Rep1.SJ.out.tab
+  ${FILEPATH}/sample_1.Rep2.SJ.out.tab
+  ${FILEPATH}/sample_1.Rep3.SJ.out.tab
 ```
 
 4) File contains sample_2 splicing junction files from STAR output:
 
 ```
-  Path/sample_2.Rep1.SJ.out.tab
-  Path/sample_2.Rep2.SJ.out.tab
-  Path/sample_2.Rep3.SJ.out.tab
+  ${FILEPATH}/sample_2.Rep1.SJ.out.tab
+  ${FILEPATH}/sample_2.Rep2.SJ.out.tab
+  ${FILEPATH}/sample_2.Rep3.SJ.out.tab
 ```
 
 #### Example
 
 ```bash
-python DEBKS_main.py -g genomeFasta -s1CJ sample_1.CJ.txt -s2CJ sample_2.CJ.txt -s1SJ sample_1.SJ.txt \
+DEBKS -g genomeFasta -s1CJ sample_1.CJ.txt -s2CJ sample_2.CJ.txt -s1SJ sample_1.SJ.txt \
    -S2SJ sample_2.SJ.txt -gtf gencode.v19.annotation.gtf -o out_test  -t 40 -read pair -len 150 -c 0.1 -a 6
 ```
 
