@@ -15,7 +15,6 @@ setup(name='DEBKS',
       python_requires=">=3",
       packages=find_packages(),
       install_requires=[
-          'python>=3',
           'scipy>=1.2.1',
           'pysam>=0.15.2',
           'pandas>=0.24.2',
