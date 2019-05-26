@@ -3,11 +3,11 @@ package:
   version: "1.0.0"
 
 source:
-  path: ./src
+  path: ./debks
 
 build:
   entry_points:
-    - DEBKS=src.DEBKS_main:main
+    - DEBKS=debks.DEBKS_main:main
 
 requirements:
   host:
