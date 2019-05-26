@@ -8,13 +8,13 @@ sample:
         echo -e "./STAR_Results/sample_2.Rep1.SJ.out.tab\n./STAR_Results/sample_2.Rep2.SJ.out.tab">sample_2_SJ.txt
 
 test1:
-        DEBKS -g ${fasta} \
+         DEBKS -g ${fasta} \
          -s1CJ sample_1_CJ.txt -s2CJ sample_2_CJ.txt -s1SJ sample_1_SJ.txt -s2SJ sample_2_SJ.txt \
          -gtf ${gtf} \
          -o DEBKS_test1/ -t 1 -read single -len 100 -c 0.01 -a 10
 
 test2:
-        DEBKS -g ${fasta} \
+         DEBKS -g ${fasta} \
          -s1CJ sample_1_CJ.txt -s2CJ sample_2_CJ.txt -s1SJ sample_1_SJ.txt -s2SJ sample_2_SJ.txt \
          -gtf ${gtf} \
          -o DEBKS_test2/ -t 10 -read single -len 100 -c 0.01 -a 10
