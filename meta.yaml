@@ -18,6 +18,7 @@ requirements:
     - circexplorer2>=2.3.6
     - star>=2.6.1
     - samtools>=1.9
+    - ucsc-gtftogenepred
 
   run:
     - python>=3
@@ -27,6 +28,8 @@ requirements:
     - circexplorer2>=2.3.6
     - star>=2.6.1
     - samtools>=1.9
+    - ucsc-gtftogenepred
+
 
 about:
   home: https://github.com/yangence/DEBKS
