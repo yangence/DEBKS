@@ -22,26 +22,19 @@ DEBKS is a free software, which can be downloaded from https://github.com/yangen
 
 ## Installation
 
-1. Install latest release using pip
-
-```
-pip install DEBKS
-```
-
-2. Install latest release via conda
-
+Install latest release via conda
 ```
 conda install -c colinliuzelin DEBKS
 ```
 
-3. Install latest release from source codes
-
+Install latest release from source codes
 ```
 git clone https://github.com/yangence/DEBKS.git
 cd DEBKS
 pip install -r requirements.txt
 python setup.py install
 ```
+
 ## Required Files:
 
 Users can prepare the external files under the following instructions:
