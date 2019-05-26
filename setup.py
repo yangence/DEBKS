@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
-from src.version import __version__
+from debks.version import __version__
 
 setup(name='DEBKS',
       version=__version__,
@@ -22,7 +22,7 @@ setup(name='DEBKS',
       ],
       entry_points={
           'console_scripts': [
-              'DEBKS=src.DEBKS_main:main'
+              'DEBKS=debks.DEBKS_main:main'
           ],
       },
       )
