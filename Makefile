@@ -20,6 +20,7 @@ clean-build:
 	rm -fr build/
 	rm -fr dist/
 	rm -fr .eggs/
+	rm record.txt
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
 
@@ -30,5 +31,5 @@ clean-pyc:
 	find . -name '__pycache__' -exec rm -fr {} +
 
 lint:
-	flake8 src/DEBKS_main.py
+	flake8 debks/DEBKS_main.py
 
