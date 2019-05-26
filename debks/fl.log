@@ -1,0 +1,1533 @@
+DEBKS_multi.py:11:10: E401 multiple imports on one line
+DEBKS_multi.py:11:10: E231 missing whitespace after ','
+DEBKS_multi.py:11:13: E231 missing whitespace after ','
+DEBKS_multi.py:11:22: E231 missing whitespace after ','
+DEBKS_multi.py:11:27: E231 missing whitespace after ','
+DEBKS_multi.py:11:33: E231 missing whitespace after ','
+DEBKS_multi.py:11:43: E231 missing whitespace after ','
+DEBKS_multi.py:11:51: E231 missing whitespace after ','
+DEBKS_multi.py:11:56: E231 missing whitespace after ','
+DEBKS_multi.py:11:65: E231 missing whitespace after ','
+DEBKS_multi.py:11:71: E231 missing whitespace after ','
+DEBKS_multi.py:11:80: E501 line too long (80 > 79 characters)
+DEBKS_multi.py:20:26: E231 missing whitespace after ','
+DEBKS_multi.py:21:4: E225 missing whitespace around operator
+DEBKS_multi.py:22:1: E266 too many leading '#' for block comment
+DEBKS_multi.py:23:1: E265 block comment should start with '# '
+DEBKS_multi.py:24:1: E302 expected 2 blank lines, found 0
+DEBKS_multi.py:25:9: E225 missing whitespace around operator
+DEBKS_multi.py:26:10: E225 missing whitespace around operator
+DEBKS_multi.py:27:9: E225 missing whitespace around operator
+DEBKS_multi.py:28:10: E225 missing whitespace around operator
+DEBKS_multi.py:31:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:31:22: E231 missing whitespace after ','
+DEBKS_multi.py:32:9: E225 missing whitespace around operator
+DEBKS_multi.py:32:17: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:32:17: E231 missing whitespace after ';'
+DEBKS_multi.py:32:22: E225 missing whitespace around operator
+DEBKS_multi.py:32:30: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:32:30: E231 missing whitespace after ';'
+DEBKS_multi.py:32:35: E225 missing whitespace around operator
+DEBKS_multi.py:32:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:32:43: E231 missing whitespace after ';'
+DEBKS_multi.py:32:48: E225 missing whitespace around operator
+DEBKS_multi.py:33:5: E265 block comment should start with '# '
+DEBKS_multi.py:34:9: E225 missing whitespace around operator
+DEBKS_multi.py:34:11: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:34:11: E231 missing whitespace after ';'
+DEBKS_multi.py:34:16: E225 missing whitespace around operator
+DEBKS_multi.py:36:13: E225 missing whitespace around operator
+DEBKS_multi.py:36:39: E231 missing whitespace after ','
+DEBKS_multi.py:37:9: E225 missing whitespace around operator
+DEBKS_multi.py:39:13: E225 missing whitespace around operator
+DEBKS_multi.py:39:39: E231 missing whitespace after ','
+DEBKS_multi.py:40:9: E225 missing whitespace around operator
+DEBKS_multi.py:41:38: E231 missing whitespace after ','
+DEBKS_multi.py:41:53: E231 missing whitespace after ','
+DEBKS_multi.py:41:80: E501 line too long (163 > 79 characters)
+DEBKS_multi.py:41:83: E231 missing whitespace after ','
+DEBKS_multi.py:41:111: E231 missing whitespace after ','
+DEBKS_multi.py:43:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:43:26: E231 missing whitespace after ','
+DEBKS_multi.py:44:9: E225 missing whitespace around operator
+DEBKS_multi.py:44:17: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:44:17: E231 missing whitespace after ';'
+DEBKS_multi.py:44:22: E225 missing whitespace around operator
+DEBKS_multi.py:44:30: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:44:30: E231 missing whitespace after ';'
+DEBKS_multi.py:44:35: E225 missing whitespace around operator
+DEBKS_multi.py:44:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:44:43: E231 missing whitespace after ';'
+DEBKS_multi.py:44:48: E225 missing whitespace around operator
+DEBKS_multi.py:45:9: E225 missing whitespace around operator
+DEBKS_multi.py:45:11: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:45:11: E231 missing whitespace after ';'
+DEBKS_multi.py:45:16: E225 missing whitespace around operator
+DEBKS_multi.py:47:13: E225 missing whitespace around operator
+DEBKS_multi.py:48:9: E225 missing whitespace around operator
+DEBKS_multi.py:49:9: E225 missing whitespace around operator
+DEBKS_multi.py:49:31: E231 missing whitespace after ','
+DEBKS_multi.py:49:46: E231 missing whitespace after ','
+DEBKS_multi.py:49:80: E501 line too long (138 > 79 characters)
+DEBKS_multi.py:50:5: E265 block comment should start with '# '
+DEBKS_multi.py:50:80: E501 line too long (83 > 79 characters)
+DEBKS_multi.py:52:13: E225 missing whitespace around operator
+DEBKS_multi.py:53:9: E225 missing whitespace around operator
+DEBKS_multi.py:54:9: E225 missing whitespace around operator
+DEBKS_multi.py:54:31: E231 missing whitespace after ','
+DEBKS_multi.py:54:46: E231 missing whitespace after ','
+DEBKS_multi.py:54:80: E501 line too long (138 > 79 characters)
+DEBKS_multi.py:55:26: E231 missing whitespace after ','
+DEBKS_multi.py:57:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:58:9: E225 missing whitespace around operator
+DEBKS_multi.py:58:17: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:58:17: E231 missing whitespace after ';'
+DEBKS_multi.py:58:22: E225 missing whitespace around operator
+DEBKS_multi.py:58:30: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:58:30: E231 missing whitespace after ';'
+DEBKS_multi.py:58:35: E225 missing whitespace around operator
+DEBKS_multi.py:58:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:58:43: E231 missing whitespace after ';'
+DEBKS_multi.py:58:48: E225 missing whitespace around operator
+DEBKS_multi.py:59:9: E225 missing whitespace around operator
+DEBKS_multi.py:59:11: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:59:11: E231 missing whitespace after ';'
+DEBKS_multi.py:59:16: E225 missing whitespace around operator
+DEBKS_multi.py:61:13: E225 missing whitespace around operator
+DEBKS_multi.py:61:43: E231 missing whitespace after ','
+DEBKS_multi.py:62:9: E225 missing whitespace around operator
+DEBKS_multi.py:64:13: E225 missing whitespace around operator
+DEBKS_multi.py:64:36: E231 missing whitespace after ','
+DEBKS_multi.py:65:9: E225 missing whitespace around operator
+DEBKS_multi.py:66:38: E231 missing whitespace after ','
+DEBKS_multi.py:66:53: E231 missing whitespace after ','
+DEBKS_multi.py:66:80: E501 line too long (165 > 79 characters)
+DEBKS_multi.py:66:87: E231 missing whitespace after ','
+DEBKS_multi.py:66:112: E231 missing whitespace after ','
+DEBKS_multi.py:68:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:69:9: E225 missing whitespace around operator
+DEBKS_multi.py:69:17: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:69:17: E231 missing whitespace after ';'
+DEBKS_multi.py:69:22: E225 missing whitespace around operator
+DEBKS_multi.py:69:30: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:69:30: E231 missing whitespace after ';'
+DEBKS_multi.py:69:35: E225 missing whitespace around operator
+DEBKS_multi.py:69:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:69:43: E231 missing whitespace after ';'
+DEBKS_multi.py:69:48: E225 missing whitespace around operator
+DEBKS_multi.py:70:9: E225 missing whitespace around operator
+DEBKS_multi.py:70:11: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:70:11: E231 missing whitespace after ';'
+DEBKS_multi.py:70:16: E225 missing whitespace around operator
+DEBKS_multi.py:72:13: E225 missing whitespace around operator
+DEBKS_multi.py:73:9: E225 missing whitespace around operator
+DEBKS_multi.py:74:9: E225 missing whitespace around operator
+DEBKS_multi.py:74:31: E231 missing whitespace after ','
+DEBKS_multi.py:74:46: E231 missing whitespace after ','
+DEBKS_multi.py:74:80: E501 line too long (143 > 79 characters)
+DEBKS_multi.py:76:13: E225 missing whitespace around operator
+DEBKS_multi.py:77:9: E225 missing whitespace around operator
+DEBKS_multi.py:78:9: E225 missing whitespace around operator
+DEBKS_multi.py:78:31: E231 missing whitespace after ','
+DEBKS_multi.py:78:46: E231 missing whitespace after ','
+DEBKS_multi.py:78:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:81:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:82:9: E225 missing whitespace around operator
+DEBKS_multi.py:82:17: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:82:17: E231 missing whitespace after ';'
+DEBKS_multi.py:82:22: E225 missing whitespace around operator
+DEBKS_multi.py:82:30: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:82:30: E231 missing whitespace after ';'
+DEBKS_multi.py:82:35: E225 missing whitespace around operator
+DEBKS_multi.py:82:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:82:43: E231 missing whitespace after ';'
+DEBKS_multi.py:82:48: E225 missing whitespace around operator
+DEBKS_multi.py:83:9: E225 missing whitespace around operator
+DEBKS_multi.py:83:11: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:83:11: E231 missing whitespace after ';'
+DEBKS_multi.py:83:16: E225 missing whitespace around operator
+DEBKS_multi.py:85:13: E225 missing whitespace around operator
+DEBKS_multi.py:85:36: E231 missing whitespace after ','
+DEBKS_multi.py:86:9: E225 missing whitespace around operator
+DEBKS_multi.py:88:13: E225 missing whitespace around operator
+DEBKS_multi.py:88:43: E231 missing whitespace after ','
+DEBKS_multi.py:89:9: E225 missing whitespace around operator
+DEBKS_multi.py:90:38: E231 missing whitespace after ','
+DEBKS_multi.py:90:53: E231 missing whitespace after ','
+DEBKS_multi.py:90:80: E501 line too long (165 > 79 characters)
+DEBKS_multi.py:90:87: E231 missing whitespace after ','
+DEBKS_multi.py:90:112: E231 missing whitespace after ','
+DEBKS_multi.py:92:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:93:9: E225 missing whitespace around operator
+DEBKS_multi.py:93:17: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:93:17: E231 missing whitespace after ';'
+DEBKS_multi.py:93:22: E225 missing whitespace around operator
+DEBKS_multi.py:93:30: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:93:30: E231 missing whitespace after ';'
+DEBKS_multi.py:93:35: E225 missing whitespace around operator
+DEBKS_multi.py:93:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:93:43: E231 missing whitespace after ';'
+DEBKS_multi.py:93:48: E225 missing whitespace around operator
+DEBKS_multi.py:94:9: E225 missing whitespace around operator
+DEBKS_multi.py:94:11: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:94:11: E231 missing whitespace after ';'
+DEBKS_multi.py:94:16: E225 missing whitespace around operator
+DEBKS_multi.py:96:13: E225 missing whitespace around operator
+DEBKS_multi.py:97:9: E225 missing whitespace around operator
+DEBKS_multi.py:98:9: E225 missing whitespace around operator
+DEBKS_multi.py:98:31: E231 missing whitespace after ','
+DEBKS_multi.py:98:46: E231 missing whitespace after ','
+DEBKS_multi.py:98:80: E501 line too long (143 > 79 characters)
+DEBKS_multi.py:100:13: E225 missing whitespace around operator
+DEBKS_multi.py:101:9: E225 missing whitespace around operator
+DEBKS_multi.py:102:9: E225 missing whitespace around operator
+DEBKS_multi.py:102:31: E231 missing whitespace after ','
+DEBKS_multi.py:102:46: E231 missing whitespace after ','
+DEBKS_multi.py:102:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:105:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:106:5: E741 ambiguous variable name 'I'
+DEBKS_multi.py:106:6: E225 missing whitespace around operator
+DEBKS_multi.py:106:14: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:106:14: E231 missing whitespace after ';'
+DEBKS_multi.py:106:16: E225 missing whitespace around operator
+DEBKS_multi.py:106:24: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:106:24: E231 missing whitespace after ';'
+DEBKS_multi.py:106:29: E225 missing whitespace around operator
+DEBKS_multi.py:106:37: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:106:37: E231 missing whitespace after ';'
+DEBKS_multi.py:106:41: E225 missing whitespace around operator
+DEBKS_multi.py:107:21: E225 missing whitespace around operator
+DEBKS_multi.py:108:20: E225 missing whitespace around operator
+DEBKS_multi.py:109:5: E265 block comment should start with '# '
+DEBKS_multi.py:110:10: E225 missing whitespace around operator
+DEBKS_multi.py:110:18: E231 missing whitespace after ','
+DEBKS_multi.py:110:29: E231 missing whitespace after ','
+DEBKS_multi.py:110:75: E703 statement ends with a semicolon
+DEBKS_multi.py:110:76: E261 at least two spaces before inline comment
+DEBKS_multi.py:110:76: E262 inline comment should start with '# '
+DEBKS_multi.py:110:80: E501 line too long (150 > 79 characters)
+DEBKS_multi.py:111:10: E225 missing whitespace around operator
+DEBKS_multi.py:111:80: E501 line too long (147 > 79 characters)
+DEBKS_multi.py:111:97: E231 missing whitespace after ','
+DEBKS_multi.py:111:145: E231 missing whitespace after ','
+DEBKS_multi.py:112:10: E225 missing whitespace around operator
+DEBKS_multi.py:112:80: E501 line too long (151 > 79 characters)
+DEBKS_multi.py:112:101: E231 missing whitespace after ','
+DEBKS_multi.py:112:149: E231 missing whitespace after ','
+DEBKS_multi.py:113:5: E265 block comment should start with '# '
+DEBKS_multi.py:113:80: E501 line too long (89 > 79 characters)
+DEBKS_multi.py:115:1: W293 blank line contains whitespace
+DEBKS_multi.py:116:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:117:9: E225 missing whitespace around operator
+DEBKS_multi.py:118:5: E741 ambiguous variable name 'I'
+DEBKS_multi.py:118:6: E225 missing whitespace around operator
+DEBKS_multi.py:118:14: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:118:14: E231 missing whitespace after ';'
+DEBKS_multi.py:118:16: E225 missing whitespace around operator
+DEBKS_multi.py:118:24: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:118:24: E231 missing whitespace after ';'
+DEBKS_multi.py:118:28: E225 missing whitespace around operator
+DEBKS_multi.py:118:36: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:118:36: E231 missing whitespace after ';'
+DEBKS_multi.py:118:40: E225 missing whitespace around operator
+DEBKS_multi.py:119:21: E225 missing whitespace around operator
+DEBKS_multi.py:119:29: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:119:29: E231 missing whitespace after ';'
+DEBKS_multi.py:119:45: E225 missing whitespace around operator
+DEBKS_multi.py:120:8: E225 missing whitespace around operator
+DEBKS_multi.py:122:16: E225 missing whitespace around operator
+DEBKS_multi.py:122:80: E501 line too long (92 > 79 characters)
+DEBKS_multi.py:123:11: E225 missing whitespace around operator
+DEBKS_multi.py:123:79: E231 missing whitespace after ','
+DEBKS_multi.py:123:80: E501 line too long (113 > 79 characters)
+DEBKS_multi.py:124:16: E225 missing whitespace around operator
+DEBKS_multi.py:124:48: E231 missing whitespace after ','
+DEBKS_multi.py:124:54: E231 missing whitespace after ','
+DEBKS_multi.py:124:59: E231 missing whitespace after ','
+DEBKS_multi.py:124:64: E231 missing whitespace after ','
+DEBKS_multi.py:124:68: E231 missing whitespace after ','
+DEBKS_multi.py:124:80: E501 line too long (103 > 79 characters)
+DEBKS_multi.py:124:85: E231 missing whitespace after ','
+DEBKS_multi.py:125:12: E225 missing whitespace around operator
+DEBKS_multi.py:128:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:129:9: E225 missing whitespace around operator
+DEBKS_multi.py:130:5: E741 ambiguous variable name 'I'
+DEBKS_multi.py:130:6: E225 missing whitespace around operator
+DEBKS_multi.py:130:14: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:130:14: E231 missing whitespace after ';'
+DEBKS_multi.py:130:16: E225 missing whitespace around operator
+DEBKS_multi.py:130:24: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:130:24: E231 missing whitespace after ';'
+DEBKS_multi.py:130:28: E225 missing whitespace around operator
+DEBKS_multi.py:130:36: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:130:36: E231 missing whitespace after ';'
+DEBKS_multi.py:130:40: E225 missing whitespace around operator
+DEBKS_multi.py:131:21: E225 missing whitespace around operator
+DEBKS_multi.py:131:29: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:131:29: E231 missing whitespace after ';'
+DEBKS_multi.py:131:45: E225 missing whitespace around operator
+DEBKS_multi.py:132:8: E225 missing whitespace around operator
+DEBKS_multi.py:134:16: E225 missing whitespace around operator
+DEBKS_multi.py:134:80: E501 line too long (92 > 79 characters)
+DEBKS_multi.py:135:16: E225 missing whitespace around operator
+DEBKS_multi.py:135:42: E231 missing whitespace after ','
+DEBKS_multi.py:135:58: E231 missing whitespace after ','
+DEBKS_multi.py:136:16: E225 missing whitespace around operator
+DEBKS_multi.py:136:44: E231 missing whitespace after ','
+DEBKS_multi.py:136:50: E231 missing whitespace after ','
+DEBKS_multi.py:136:55: E231 missing whitespace after ','
+DEBKS_multi.py:136:60: E231 missing whitespace after ','
+DEBKS_multi.py:136:64: E231 missing whitespace after ','
+DEBKS_multi.py:136:80: E501 line too long (98 > 79 characters)
+DEBKS_multi.py:136:81: E231 missing whitespace after ','
+DEBKS_multi.py:137:9: E265 block comment should start with '# '
+DEBKS_multi.py:138:15: E225 missing whitespace around operator
+DEBKS_multi.py:139:11: E225 missing whitespace around operator
+DEBKS_multi.py:139:79: E231 missing whitespace after ','
+DEBKS_multi.py:139:80: E501 line too long (113 > 79 characters)
+DEBKS_multi.py:140:12: E225 missing whitespace around operator
+DEBKS_multi.py:143:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:144:10: E225 missing whitespace around operator
+DEBKS_multi.py:144:12: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:144:12: E231 missing whitespace after ';'
+DEBKS_multi.py:144:18: E225 missing whitespace around operator
+DEBKS_multi.py:145:7: E225 missing whitespace around operator
+DEBKS_multi.py:145:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:145:15: E231 missing whitespace after ';'
+DEBKS_multi.py:145:18: E225 missing whitespace around operator
+DEBKS_multi.py:145:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:145:26: E231 missing whitespace after ';'
+DEBKS_multi.py:145:31: E225 missing whitespace around operator
+DEBKS_multi.py:145:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:145:39: E231 missing whitespace after ';'
+DEBKS_multi.py:145:44: E225 missing whitespace around operator
+DEBKS_multi.py:146:7: E225 missing whitespace around operator
+DEBKS_multi.py:146:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:146:15: E231 missing whitespace after ';'
+DEBKS_multi.py:146:18: E225 missing whitespace around operator
+DEBKS_multi.py:146:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:146:26: E231 missing whitespace after ';'
+DEBKS_multi.py:146:31: E225 missing whitespace around operator
+DEBKS_multi.py:146:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:146:39: E231 missing whitespace after ';'
+DEBKS_multi.py:146:44: E225 missing whitespace around operator
+DEBKS_multi.py:147:21: E225 missing whitespace around operator
+DEBKS_multi.py:147:29: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:147:29: E231 missing whitespace after ';'
+DEBKS_multi.py:147:45: E225 missing whitespace around operator
+DEBKS_multi.py:148:33: E231 missing whitespace after ','
+DEBKS_multi.py:148:36: E231 missing whitespace after ','
+DEBKS_multi.py:148:39: E231 missing whitespace after ','
+DEBKS_multi.py:148:44: E231 missing whitespace after ','
+DEBKS_multi.py:148:49: E231 missing whitespace after ','
+DEBKS_multi.py:148:66: E231 missing whitespace after ','
+DEBKS_multi.py:148:80: E501 line too long (155 > 79 characters)
+DEBKS_multi.py:148:105: E231 missing whitespace after ','
+DEBKS_multi.py:148:108: E231 missing whitespace after ','
+DEBKS_multi.py:148:111: E231 missing whitespace after ','
+DEBKS_multi.py:148:116: E231 missing whitespace after ','
+DEBKS_multi.py:148:121: E231 missing whitespace after ','
+DEBKS_multi.py:148:138: E231 missing whitespace after ','
+DEBKS_multi.py:150:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:151:10: E225 missing whitespace around operator
+DEBKS_multi.py:151:12: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:151:12: E231 missing whitespace after ';'
+DEBKS_multi.py:151:18: E225 missing whitespace around operator
+DEBKS_multi.py:152:7: E225 missing whitespace around operator
+DEBKS_multi.py:152:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:152:15: E231 missing whitespace after ';'
+DEBKS_multi.py:152:18: E225 missing whitespace around operator
+DEBKS_multi.py:152:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:152:26: E231 missing whitespace after ';'
+DEBKS_multi.py:152:31: E225 missing whitespace around operator
+DEBKS_multi.py:152:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:152:39: E231 missing whitespace after ';'
+DEBKS_multi.py:152:44: E225 missing whitespace around operator
+DEBKS_multi.py:153:7: E225 missing whitespace around operator
+DEBKS_multi.py:153:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:153:15: E231 missing whitespace after ';'
+DEBKS_multi.py:153:18: E225 missing whitespace around operator
+DEBKS_multi.py:153:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:153:26: E231 missing whitespace after ';'
+DEBKS_multi.py:153:31: E225 missing whitespace around operator
+DEBKS_multi.py:153:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:153:39: E231 missing whitespace after ';'
+DEBKS_multi.py:153:44: E225 missing whitespace around operator
+DEBKS_multi.py:154:21: E225 missing whitespace around operator
+DEBKS_multi.py:154:29: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:154:29: E231 missing whitespace after ';'
+DEBKS_multi.py:154:45: E225 missing whitespace around operator
+DEBKS_multi.py:155:37: E231 missing whitespace after ','
+DEBKS_multi.py:155:40: E231 missing whitespace after ','
+DEBKS_multi.py:155:43: E231 missing whitespace after ','
+DEBKS_multi.py:155:48: E231 missing whitespace after ','
+DEBKS_multi.py:155:53: E231 missing whitespace after ','
+DEBKS_multi.py:155:70: E231 missing whitespace after ','
+DEBKS_multi.py:155:80: E501 line too long (163 > 79 characters)
+DEBKS_multi.py:155:113: E231 missing whitespace after ','
+DEBKS_multi.py:155:116: E231 missing whitespace after ','
+DEBKS_multi.py:155:119: E231 missing whitespace after ','
+DEBKS_multi.py:155:124: E231 missing whitespace after ','
+DEBKS_multi.py:155:129: E231 missing whitespace after ','
+DEBKS_multi.py:155:146: E231 missing whitespace after ','
+DEBKS_multi.py:157:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:158:10: E225 missing whitespace around operator
+DEBKS_multi.py:158:19: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:158:19: E231 missing whitespace after ';'
+DEBKS_multi.py:158:25: E225 missing whitespace around operator
+DEBKS_multi.py:159:7: E225 missing whitespace around operator
+DEBKS_multi.py:159:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:159:15: E231 missing whitespace after ';'
+DEBKS_multi.py:159:18: E225 missing whitespace around operator
+DEBKS_multi.py:159:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:159:26: E231 missing whitespace after ';'
+DEBKS_multi.py:159:31: E225 missing whitespace around operator
+DEBKS_multi.py:159:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:159:39: E231 missing whitespace after ';'
+DEBKS_multi.py:159:44: E225 missing whitespace around operator
+DEBKS_multi.py:160:7: E225 missing whitespace around operator
+DEBKS_multi.py:160:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:160:15: E231 missing whitespace after ';'
+DEBKS_multi.py:160:18: E225 missing whitespace around operator
+DEBKS_multi.py:160:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:160:26: E231 missing whitespace after ';'
+DEBKS_multi.py:160:31: E225 missing whitespace around operator
+DEBKS_multi.py:160:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:160:39: E231 missing whitespace after ';'
+DEBKS_multi.py:160:44: E225 missing whitespace around operator
+DEBKS_multi.py:161:21: E225 missing whitespace around operator
+DEBKS_multi.py:161:29: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:161:29: E231 missing whitespace after ';'
+DEBKS_multi.py:161:45: E225 missing whitespace around operator
+DEBKS_multi.py:162:33: E231 missing whitespace after ','
+DEBKS_multi.py:162:36: E231 missing whitespace after ','
+DEBKS_multi.py:162:39: E231 missing whitespace after ','
+DEBKS_multi.py:162:44: E231 missing whitespace after ','
+DEBKS_multi.py:162:49: E231 missing whitespace after ','
+DEBKS_multi.py:162:66: E231 missing whitespace after ','
+DEBKS_multi.py:162:80: E501 line too long (155 > 79 characters)
+DEBKS_multi.py:162:105: E231 missing whitespace after ','
+DEBKS_multi.py:162:108: E231 missing whitespace after ','
+DEBKS_multi.py:162:111: E231 missing whitespace after ','
+DEBKS_multi.py:162:116: E231 missing whitespace after ','
+DEBKS_multi.py:162:121: E231 missing whitespace after ','
+DEBKS_multi.py:162:138: E231 missing whitespace after ','
+DEBKS_multi.py:164:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:165:10: E225 missing whitespace around operator
+DEBKS_multi.py:165:19: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:165:19: E231 missing whitespace after ';'
+DEBKS_multi.py:165:25: E225 missing whitespace around operator
+DEBKS_multi.py:166:7: E225 missing whitespace around operator
+DEBKS_multi.py:166:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:166:15: E231 missing whitespace after ';'
+DEBKS_multi.py:166:18: E225 missing whitespace around operator
+DEBKS_multi.py:166:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:166:26: E231 missing whitespace after ';'
+DEBKS_multi.py:166:31: E225 missing whitespace around operator
+DEBKS_multi.py:166:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:166:39: E231 missing whitespace after ';'
+DEBKS_multi.py:166:44: E225 missing whitespace around operator
+DEBKS_multi.py:167:7: E225 missing whitespace around operator
+DEBKS_multi.py:167:15: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:167:15: E231 missing whitespace after ';'
+DEBKS_multi.py:167:18: E225 missing whitespace around operator
+DEBKS_multi.py:167:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:167:26: E231 missing whitespace after ';'
+DEBKS_multi.py:167:31: E225 missing whitespace around operator
+DEBKS_multi.py:167:39: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:167:39: E231 missing whitespace after ';'
+DEBKS_multi.py:167:44: E225 missing whitespace around operator
+DEBKS_multi.py:168:21: E225 missing whitespace around operator
+DEBKS_multi.py:168:29: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:168:29: E231 missing whitespace after ';'
+DEBKS_multi.py:168:45: E225 missing whitespace around operator
+DEBKS_multi.py:169:37: E231 missing whitespace after ','
+DEBKS_multi.py:169:40: E231 missing whitespace after ','
+DEBKS_multi.py:169:43: E231 missing whitespace after ','
+DEBKS_multi.py:169:48: E231 missing whitespace after ','
+DEBKS_multi.py:169:53: E231 missing whitespace after ','
+DEBKS_multi.py:169:70: E231 missing whitespace after ','
+DEBKS_multi.py:169:80: E501 line too long (163 > 79 characters)
+DEBKS_multi.py:169:113: E231 missing whitespace after ','
+DEBKS_multi.py:169:116: E231 missing whitespace after ','
+DEBKS_multi.py:169:119: E231 missing whitespace after ','
+DEBKS_multi.py:169:124: E231 missing whitespace after ','
+DEBKS_multi.py:169:129: E231 missing whitespace after ','
+DEBKS_multi.py:169:146: E231 missing whitespace after ','
+DEBKS_multi.py:170:1: W293 blank line contains whitespace
+DEBKS_multi.py:171:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:171:24: E231 missing whitespace after ','
+DEBKS_multi.py:172:5: E741 ambiguous variable name 'I'
+DEBKS_multi.py:172:6: E225 missing whitespace around operator
+DEBKS_multi.py:172:14: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:172:14: E231 missing whitespace after ';'
+DEBKS_multi.py:172:16: E225 missing whitespace around operator
+DEBKS_multi.py:172:24: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:172:24: E231 missing whitespace after ';'
+DEBKS_multi.py:172:29: E225 missing whitespace around operator
+DEBKS_multi.py:172:37: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:172:37: E231 missing whitespace after ';'
+DEBKS_multi.py:172:41: E225 missing whitespace around operator
+DEBKS_multi.py:173:21: E225 missing whitespace around operator
+DEBKS_multi.py:174:20: E225 missing whitespace around operator
+DEBKS_multi.py:175:12: E225 missing whitespace around operator
+DEBKS_multi.py:176:80: E501 line too long (116 > 79 characters)
+DEBKS_multi.py:178:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:178:28: E231 missing whitespace after ','
+DEBKS_multi.py:179:5: E741 ambiguous variable name 'I'
+DEBKS_multi.py:179:6: E225 missing whitespace around operator
+DEBKS_multi.py:179:14: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:179:14: E231 missing whitespace after ';'
+DEBKS_multi.py:179:16: E225 missing whitespace around operator
+DEBKS_multi.py:179:24: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:179:24: E231 missing whitespace after ';'
+DEBKS_multi.py:179:29: E225 missing whitespace around operator
+DEBKS_multi.py:179:37: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:179:37: E231 missing whitespace after ';'
+DEBKS_multi.py:179:41: E225 missing whitespace around operator
+DEBKS_multi.py:180:21: E225 missing whitespace around operator
+DEBKS_multi.py:181:20: E225 missing whitespace around operator
+DEBKS_multi.py:182:12: E225 missing whitespace around operator
+DEBKS_multi.py:183:16: E225 missing whitespace around operator
+DEBKS_multi.py:183:80: E501 line too long (96 > 79 characters)
+DEBKS_multi.py:183:94: E231 missing whitespace after ','
+DEBKS_multi.py:184:80: E501 line too long (112 > 79 characters)
+DEBKS_multi.py:184:110: E202 whitespace before ')'
+DEBKS_multi.py:186:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:187:5: E741 ambiguous variable name 'I'
+DEBKS_multi.py:187:6: E225 missing whitespace around operator
+DEBKS_multi.py:187:14: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:187:14: E231 missing whitespace after ';'
+DEBKS_multi.py:187:16: E225 missing whitespace around operator
+DEBKS_multi.py:187:24: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:187:24: E231 missing whitespace after ';'
+DEBKS_multi.py:187:29: E225 missing whitespace around operator
+DEBKS_multi.py:187:37: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:187:37: E231 missing whitespace after ';'
+DEBKS_multi.py:187:41: E225 missing whitespace around operator
+DEBKS_multi.py:187:49: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:187:49: E231 missing whitespace after ';'
+DEBKS_multi.py:187:53: E225 missing whitespace around operator
+DEBKS_multi.py:187:55: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:187:55: E231 missing whitespace after ';'
+DEBKS_multi.py:187:57: E225 missing whitespace around operator
+DEBKS_multi.py:188:5: E265 block comment should start with '# '
+DEBKS_multi.py:188:80: E501 line too long (124 > 79 characters)
+DEBKS_multi.py:189:5: E265 block comment should start with '# '
+DEBKS_multi.py:190:9: E225 missing whitespace around operator
+DEBKS_multi.py:192:80: E501 line too long (113 > 79 characters)
+DEBKS_multi.py:194:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:194:31: E231 missing whitespace after ','
+DEBKS_multi.py:194:34: E231 missing whitespace after ','
+DEBKS_multi.py:194:37: E231 missing whitespace after ','
+DEBKS_multi.py:194:40: E231 missing whitespace after ','
+DEBKS_multi.py:194:67: E231 missing whitespace after ','
+DEBKS_multi.py:194:80: E501 line too long (94 > 79 characters)
+DEBKS_multi.py:195:9: E225 missing whitespace around operator
+DEBKS_multi.py:195:20: E231 missing whitespace after ','
+DEBKS_multi.py:195:23: E231 missing whitespace after ','
+DEBKS_multi.py:195:50: E231 missing whitespace after ','
+DEBKS_multi.py:195:77: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:195:77: E231 missing whitespace after ';'
+DEBKS_multi.py:195:80: E501 line too long (149 > 79 characters)
+DEBKS_multi.py:195:82: E225 missing whitespace around operator
+DEBKS_multi.py:195:93: E231 missing whitespace after ','
+DEBKS_multi.py:195:96: E231 missing whitespace after ','
+DEBKS_multi.py:195:123: E231 missing whitespace after ','
+DEBKS_multi.py:196:16: E225 missing whitespace around operator
+DEBKS_multi.py:196:18: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:196:18: E231 missing whitespace after ';'
+DEBKS_multi.py:196:30: E225 missing whitespace around operator
+DEBKS_multi.py:196:34: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:196:34: E231 missing whitespace after ';'
+DEBKS_multi.py:196:40: E225 missing whitespace around operator
+DEBKS_multi.py:196:42: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:196:42: E231 missing whitespace after ';'
+DEBKS_multi.py:196:55: E225 missing whitespace around operator
+DEBKS_multi.py:197:11: E225 missing whitespace around operator
+DEBKS_multi.py:198:11: E225 missing whitespace around operator
+DEBKS_multi.py:199:9: E225 missing whitespace around operator
+DEBKS_multi.py:200:9: E225 missing whitespace around operator
+DEBKS_multi.py:201:12: E225 missing whitespace around operator
+DEBKS_multi.py:202:13: E225 missing whitespace around operator
+DEBKS_multi.py:203:12: E225 missing whitespace around operator
+DEBKS_multi.py:204:13: E225 missing whitespace around operator
+DEBKS_multi.py:205:5: E265 block comment should start with '# '
+DEBKS_multi.py:206:23: E225 missing whitespace around operator
+DEBKS_multi.py:206:29: E227 missing whitespace around bitwise or shift operator
+DEBKS_multi.py:206:36: E225 missing whitespace around operator
+DEBKS_multi.py:207:14: E225 missing whitespace around operator
+DEBKS_multi.py:208:9: E265 block comment should start with '# '
+DEBKS_multi.py:209:15: E225 missing whitespace around operator
+DEBKS_multi.py:210:15: E225 missing whitespace around operator
+DEBKS_multi.py:211:9: E265 block comment should start with '# '
+DEBKS_multi.py:212:9: E265 block comment should start with '# '
+DEBKS_multi.py:213:33: E225 missing whitespace around operator
+DEBKS_multi.py:213:56: E261 at least two spaces before inline comment
+DEBKS_multi.py:213:56: E262 inline comment should start with '# '
+DEBKS_multi.py:213:80: E501 line too long (87 > 79 characters)
+DEBKS_multi.py:214:42: E231 missing whitespace after ','
+DEBKS_multi.py:214:64: E231 missing whitespace after ','
+DEBKS_multi.py:214:77: E231 missing whitespace after ','
+DEBKS_multi.py:214:80: E501 line too long (144 > 79 characters)
+DEBKS_multi.py:214:88: E231 missing whitespace after ','
+DEBKS_multi.py:214:93: E231 missing whitespace after ','
+DEBKS_multi.py:214:98: E231 missing whitespace after ','
+DEBKS_multi.py:214:104: E231 missing whitespace after ','
+DEBKS_multi.py:214:119: E231 missing whitespace after ','
+DEBKS_multi.py:214:134: E231 missing whitespace after ','
+DEBKS_multi.py:215:44: E231 missing whitespace after ','
+DEBKS_multi.py:215:54: E231 missing whitespace after ','
+DEBKS_multi.py:215:57: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:215:57: E231 missing whitespace after ';'
+DEBKS_multi.py:215:64: E225 missing whitespace around operator
+DEBKS_multi.py:216:14: E261 at least two spaces before inline comment
+DEBKS_multi.py:216:14: E262 inline comment should start with '# '
+DEBKS_multi.py:217:42: E231 missing whitespace after ','
+DEBKS_multi.py:217:64: E231 missing whitespace after ','
+DEBKS_multi.py:217:77: E231 missing whitespace after ','
+DEBKS_multi.py:217:80: E501 line too long (144 > 79 characters)
+DEBKS_multi.py:217:88: E231 missing whitespace after ','
+DEBKS_multi.py:217:93: E231 missing whitespace after ','
+DEBKS_multi.py:217:98: E231 missing whitespace after ','
+DEBKS_multi.py:217:104: E231 missing whitespace after ','
+DEBKS_multi.py:217:119: E231 missing whitespace after ','
+DEBKS_multi.py:217:134: E231 missing whitespace after ','
+DEBKS_multi.py:218:44: E231 missing whitespace after ','
+DEBKS_multi.py:218:54: E231 missing whitespace after ','
+DEBKS_multi.py:218:57: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:218:57: E231 missing whitespace after ';'
+DEBKS_multi.py:218:64: E225 missing whitespace around operator
+DEBKS_multi.py:219:9: E265 block comment should start with '# '
+DEBKS_multi.py:219:80: E501 line too long (88 > 79 characters)
+DEBKS_multi.py:220:9: E265 block comment should start with '# '
+DEBKS_multi.py:222:15: E225 missing whitespace around operator
+DEBKS_multi.py:222:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:222:22: E231 missing whitespace after ';'
+DEBKS_multi.py:222:29: E225 missing whitespace around operator
+DEBKS_multi.py:223:9: E265 block comment should start with '# '
+DEBKS_multi.py:224:17: E225 missing whitespace around operator
+DEBKS_multi.py:224:20: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:224:20: E231 missing whitespace after ';'
+DEBKS_multi.py:224:29: E225 missing whitespace around operator
+DEBKS_multi.py:224:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:224:32: E231 missing whitespace after ';'
+DEBKS_multi.py:224:44: E225 missing whitespace around operator
+DEBKS_multi.py:224:46: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:224:46: E231 missing whitespace after ';'
+DEBKS_multi.py:224:61: E225 missing whitespace around operator
+DEBKS_multi.py:225:9: E265 block comment should start with '# '
+DEBKS_multi.py:227:51: E231 missing whitespace after ','
+DEBKS_multi.py:227:61: E231 missing whitespace after ','
+DEBKS_multi.py:227:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:227:83: E231 missing whitespace after ','
+DEBKS_multi.py:227:95: E231 missing whitespace after ','
+DEBKS_multi.py:227:101: E231 missing whitespace after ','
+DEBKS_multi.py:227:108: E231 missing whitespace after ','
+DEBKS_multi.py:227:113: E231 missing whitespace after ','
+DEBKS_multi.py:227:140: E231 missing whitespace after ','
+DEBKS_multi.py:227:167: E231 missing whitespace after ','
+DEBKS_multi.py:227:181: E231 missing whitespace after ','
+DEBKS_multi.py:227:188: E231 missing whitespace after ','
+DEBKS_multi.py:228:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:228:44: E231 missing whitespace after ';'
+DEBKS_multi.py:228:56: E225 missing whitespace around operator
+DEBKS_multi.py:228:72: E703 statement ends with a semicolon
+DEBKS_multi.py:228:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:228:73: E262 inline comment should start with '# '
+DEBKS_multi.py:228:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:229:13: E265 block comment should start with '# '
+DEBKS_multi.py:229:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:231:51: E231 missing whitespace after ','
+DEBKS_multi.py:231:61: E231 missing whitespace after ','
+DEBKS_multi.py:231:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:231:83: E231 missing whitespace after ','
+DEBKS_multi.py:231:95: E231 missing whitespace after ','
+DEBKS_multi.py:231:101: E231 missing whitespace after ','
+DEBKS_multi.py:231:108: E231 missing whitespace after ','
+DEBKS_multi.py:231:113: E231 missing whitespace after ','
+DEBKS_multi.py:231:140: E231 missing whitespace after ','
+DEBKS_multi.py:231:167: E231 missing whitespace after ','
+DEBKS_multi.py:231:181: E231 missing whitespace after ','
+DEBKS_multi.py:231:188: E231 missing whitespace after ','
+DEBKS_multi.py:232:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:232:44: E231 missing whitespace after ';'
+DEBKS_multi.py:232:56: E225 missing whitespace around operator
+DEBKS_multi.py:232:72: E703 statement ends with a semicolon
+DEBKS_multi.py:232:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:232:73: E262 inline comment should start with '# '
+DEBKS_multi.py:232:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:233:13: E265 block comment should start with '# '
+DEBKS_multi.py:233:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:234:9: E265 block comment should start with '# '
+DEBKS_multi.py:235:13: E225 missing whitespace around operator
+DEBKS_multi.py:235:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:235:22: E231 missing whitespace after ';'
+DEBKS_multi.py:235:27: E225 missing whitespace around operator
+DEBKS_multi.py:236:9: E265 block comment should start with '# '
+DEBKS_multi.py:236:80: E501 line too long (118 > 79 characters)
+DEBKS_multi.py:237:17: E225 missing whitespace around operator
+DEBKS_multi.py:238:24: E225 missing whitespace around operator
+DEBKS_multi.py:239:21: E225 missing whitespace around operator
+DEBKS_multi.py:240:5: E265 block comment should start with '# '
+DEBKS_multi.py:240:80: E501 line too long (116 > 79 characters)
+DEBKS_multi.py:241:5: E265 block comment should start with '# '
+DEBKS_multi.py:242:24: E231 missing whitespace after ','
+DEBKS_multi.py:242:30: E231 missing whitespace after ','
+DEBKS_multi.py:242:35: E231 missing whitespace after ','
+DEBKS_multi.py:242:42: E231 missing whitespace after ','
+DEBKS_multi.py:242:49: E231 missing whitespace after ','
+DEBKS_multi.py:242:54: E231 missing whitespace after ','
+DEBKS_multi.py:243:5: E265 block comment should start with '# '
+DEBKS_multi.py:245:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:245:21: E231 missing whitespace after ','
+DEBKS_multi.py:245:24: E231 missing whitespace after ','
+DEBKS_multi.py:245:27: E231 missing whitespace after ','
+DEBKS_multi.py:245:30: E231 missing whitespace after ','
+DEBKS_multi.py:245:57: E231 missing whitespace after ','
+DEBKS_multi.py:245:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:246:9: E225 missing whitespace around operator
+DEBKS_multi.py:246:20: E231 missing whitespace after ','
+DEBKS_multi.py:246:23: E231 missing whitespace after ','
+DEBKS_multi.py:246:50: E231 missing whitespace after ','
+DEBKS_multi.py:246:77: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:246:77: E231 missing whitespace after ';'
+DEBKS_multi.py:246:80: E501 line too long (149 > 79 characters)
+DEBKS_multi.py:246:82: E225 missing whitespace around operator
+DEBKS_multi.py:246:93: E231 missing whitespace after ','
+DEBKS_multi.py:246:96: E231 missing whitespace after ','
+DEBKS_multi.py:246:123: E231 missing whitespace after ','
+DEBKS_multi.py:247:16: E225 missing whitespace around operator
+DEBKS_multi.py:247:18: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:247:18: E231 missing whitespace after ';'
+DEBKS_multi.py:247:30: E225 missing whitespace around operator
+DEBKS_multi.py:247:34: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:247:34: E231 missing whitespace after ';'
+DEBKS_multi.py:247:40: E225 missing whitespace around operator
+DEBKS_multi.py:247:42: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:247:42: E231 missing whitespace after ';'
+DEBKS_multi.py:247:55: E225 missing whitespace around operator
+DEBKS_multi.py:248:11: E225 missing whitespace around operator
+DEBKS_multi.py:249:11: E225 missing whitespace around operator
+DEBKS_multi.py:250:9: E225 missing whitespace around operator
+DEBKS_multi.py:251:9: E225 missing whitespace around operator
+DEBKS_multi.py:252:12: E225 missing whitespace around operator
+DEBKS_multi.py:253:13: E225 missing whitespace around operator
+DEBKS_multi.py:254:12: E225 missing whitespace around operator
+DEBKS_multi.py:255:13: E225 missing whitespace around operator
+DEBKS_multi.py:256:5: E265 block comment should start with '# '
+DEBKS_multi.py:257:23: E225 missing whitespace around operator
+DEBKS_multi.py:257:29: E227 missing whitespace around bitwise or shift operator
+DEBKS_multi.py:257:36: E225 missing whitespace around operator
+DEBKS_multi.py:258:14: E225 missing whitespace around operator
+DEBKS_multi.py:259:9: E265 block comment should start with '# '
+DEBKS_multi.py:260:15: E225 missing whitespace around operator
+DEBKS_multi.py:261:15: E225 missing whitespace around operator
+DEBKS_multi.py:262:13: E225 missing whitespace around operator
+DEBKS_multi.py:262:43: E231 missing whitespace after ','
+DEBKS_multi.py:262:51: E231 missing whitespace after ','
+DEBKS_multi.py:262:59: E231 missing whitespace after ','
+DEBKS_multi.py:262:79: E231 missing whitespace after ','
+DEBKS_multi.py:262:80: E501 line too long (149 > 79 characters)
+DEBKS_multi.py:262:90: E231 missing whitespace after ','
+DEBKS_multi.py:262:95: E231 missing whitespace after ','
+DEBKS_multi.py:262:100: E231 missing whitespace after ','
+DEBKS_multi.py:262:106: E231 missing whitespace after ','
+DEBKS_multi.py:262:120: E231 missing whitespace after ','
+DEBKS_multi.py:262:126: E231 missing whitespace after ','
+DEBKS_multi.py:262:132: E231 missing whitespace after ','
+DEBKS_multi.py:262:139: E231 missing whitespace after ','
+DEBKS_multi.py:263:15: E225 missing whitespace around operator
+DEBKS_multi.py:264:15: E225 missing whitespace around operator
+DEBKS_multi.py:265:9: E265 block comment should start with '# '
+DEBKS_multi.py:266:9: E265 block comment should start with '# '
+DEBKS_multi.py:267:9: E265 block comment should start with '# '
+DEBKS_multi.py:268:17: E225 missing whitespace around operator
+DEBKS_multi.py:268:20: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:268:20: E231 missing whitespace after ';'
+DEBKS_multi.py:268:29: E225 missing whitespace around operator
+DEBKS_multi.py:268:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:268:32: E231 missing whitespace after ';'
+DEBKS_multi.py:268:44: E225 missing whitespace around operator
+DEBKS_multi.py:268:46: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:268:46: E231 missing whitespace after ';'
+DEBKS_multi.py:268:61: E225 missing whitespace around operator
+DEBKS_multi.py:270:51: E231 missing whitespace after ','
+DEBKS_multi.py:270:61: E231 missing whitespace after ','
+DEBKS_multi.py:270:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:270:83: E231 missing whitespace after ','
+DEBKS_multi.py:270:95: E231 missing whitespace after ','
+DEBKS_multi.py:270:101: E231 missing whitespace after ','
+DEBKS_multi.py:270:108: E231 missing whitespace after ','
+DEBKS_multi.py:270:113: E231 missing whitespace after ','
+DEBKS_multi.py:270:140: E231 missing whitespace after ','
+DEBKS_multi.py:270:167: E231 missing whitespace after ','
+DEBKS_multi.py:270:181: E231 missing whitespace after ','
+DEBKS_multi.py:270:188: E231 missing whitespace after ','
+DEBKS_multi.py:271:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:271:44: E231 missing whitespace after ';'
+DEBKS_multi.py:271:56: E225 missing whitespace around operator
+DEBKS_multi.py:271:72: E703 statement ends with a semicolon
+DEBKS_multi.py:271:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:271:73: E262 inline comment should start with '# '
+DEBKS_multi.py:271:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:272:13: E265 block comment should start with '# '
+DEBKS_multi.py:272:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:274:51: E231 missing whitespace after ','
+DEBKS_multi.py:274:61: E231 missing whitespace after ','
+DEBKS_multi.py:274:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:274:83: E231 missing whitespace after ','
+DEBKS_multi.py:274:95: E231 missing whitespace after ','
+DEBKS_multi.py:274:101: E231 missing whitespace after ','
+DEBKS_multi.py:274:108: E231 missing whitespace after ','
+DEBKS_multi.py:274:113: E231 missing whitespace after ','
+DEBKS_multi.py:274:140: E231 missing whitespace after ','
+DEBKS_multi.py:274:167: E231 missing whitespace after ','
+DEBKS_multi.py:274:181: E231 missing whitespace after ','
+DEBKS_multi.py:274:188: E231 missing whitespace after ','
+DEBKS_multi.py:275:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:275:44: E231 missing whitespace after ';'
+DEBKS_multi.py:275:56: E225 missing whitespace around operator
+DEBKS_multi.py:275:72: E703 statement ends with a semicolon
+DEBKS_multi.py:275:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:275:73: E262 inline comment should start with '# '
+DEBKS_multi.py:275:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:276:13: E265 block comment should start with '# '
+DEBKS_multi.py:276:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:277:9: E265 block comment should start with '# '
+DEBKS_multi.py:278:13: E225 missing whitespace around operator
+DEBKS_multi.py:278:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:278:22: E231 missing whitespace after ';'
+DEBKS_multi.py:278:27: E225 missing whitespace around operator
+DEBKS_multi.py:279:9: E265 block comment should start with '# '
+DEBKS_multi.py:279:80: E501 line too long (113 > 79 characters)
+DEBKS_multi.py:280:17: E225 missing whitespace around operator
+DEBKS_multi.py:281:24: E225 missing whitespace around operator
+DEBKS_multi.py:282:21: E225 missing whitespace around operator
+DEBKS_multi.py:283:5: E265 block comment should start with '# '
+DEBKS_multi.py:283:80: E501 line too long (125 > 79 characters)
+DEBKS_multi.py:284:5: E265 block comment should start with '# '
+DEBKS_multi.py:285:13: E225 missing whitespace around operator
+DEBKS_multi.py:286:28: E231 missing whitespace after ','
+DEBKS_multi.py:286:34: E231 missing whitespace after ','
+DEBKS_multi.py:286:39: E231 missing whitespace after ','
+DEBKS_multi.py:286:41: E231 missing whitespace after ','
+DEBKS_multi.py:286:43: E231 missing whitespace after ','
+DEBKS_multi.py:286:48: E231 missing whitespace after ','
+DEBKS_multi.py:287:24: E231 missing whitespace after ','
+DEBKS_multi.py:287:30: E231 missing whitespace after ','
+DEBKS_multi.py:287:35: E231 missing whitespace after ','
+DEBKS_multi.py:287:42: E231 missing whitespace after ','
+DEBKS_multi.py:287:49: E231 missing whitespace after ','
+DEBKS_multi.py:287:54: E231 missing whitespace after ','
+DEBKS_multi.py:288:5: E265 block comment should start with '# '
+DEBKS_multi.py:290:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:290:30: E231 missing whitespace after ','
+DEBKS_multi.py:290:33: E231 missing whitespace after ','
+DEBKS_multi.py:290:36: E231 missing whitespace after ','
+DEBKS_multi.py:290:39: E231 missing whitespace after ','
+DEBKS_multi.py:290:66: E231 missing whitespace after ','
+DEBKS_multi.py:290:80: E501 line too long (93 > 79 characters)
+DEBKS_multi.py:291:5: E265 block comment should start with '# '
+DEBKS_multi.py:292:9: E225 missing whitespace around operator
+DEBKS_multi.py:292:20: E231 missing whitespace after ','
+DEBKS_multi.py:292:23: E231 missing whitespace after ','
+DEBKS_multi.py:292:50: E231 missing whitespace after ','
+DEBKS_multi.py:292:77: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:292:77: E231 missing whitespace after ';'
+DEBKS_multi.py:292:80: E501 line too long (149 > 79 characters)
+DEBKS_multi.py:292:82: E225 missing whitespace around operator
+DEBKS_multi.py:292:93: E231 missing whitespace after ','
+DEBKS_multi.py:292:96: E231 missing whitespace after ','
+DEBKS_multi.py:292:123: E231 missing whitespace after ','
+DEBKS_multi.py:293:16: E225 missing whitespace around operator
+DEBKS_multi.py:293:18: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:293:18: E231 missing whitespace after ';'
+DEBKS_multi.py:293:30: E225 missing whitespace around operator
+DEBKS_multi.py:293:34: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:293:34: E231 missing whitespace after ';'
+DEBKS_multi.py:293:40: E225 missing whitespace around operator
+DEBKS_multi.py:293:42: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:293:42: E231 missing whitespace after ';'
+DEBKS_multi.py:293:55: E225 missing whitespace around operator
+DEBKS_multi.py:294:11: E225 missing whitespace around operator
+DEBKS_multi.py:295:11: E225 missing whitespace around operator
+DEBKS_multi.py:296:9: E225 missing whitespace around operator
+DEBKS_multi.py:297:9: E225 missing whitespace around operator
+DEBKS_multi.py:298:12: E225 missing whitespace around operator
+DEBKS_multi.py:299:13: E225 missing whitespace around operator
+DEBKS_multi.py:300:12: E225 missing whitespace around operator
+DEBKS_multi.py:301:13: E225 missing whitespace around operator
+DEBKS_multi.py:302:5: E265 block comment should start with '# '
+DEBKS_multi.py:303:1: W293 blank line contains whitespace
+DEBKS_multi.py:304:5: E265 block comment should start with '# '
+DEBKS_multi.py:305:23: E225 missing whitespace around operator
+DEBKS_multi.py:305:29: E227 missing whitespace around bitwise or shift operator
+DEBKS_multi.py:305:36: E225 missing whitespace around operator
+DEBKS_multi.py:306:14: E225 missing whitespace around operator
+DEBKS_multi.py:307:9: E265 block comment should start with '# '
+DEBKS_multi.py:308:15: E225 missing whitespace around operator
+DEBKS_multi.py:309:15: E225 missing whitespace around operator
+DEBKS_multi.py:310:13: E225 missing whitespace around operator
+DEBKS_multi.py:310:43: E231 missing whitespace after ','
+DEBKS_multi.py:310:51: E231 missing whitespace after ','
+DEBKS_multi.py:310:59: E231 missing whitespace after ','
+DEBKS_multi.py:310:79: E231 missing whitespace after ','
+DEBKS_multi.py:310:80: E501 line too long (149 > 79 characters)
+DEBKS_multi.py:310:90: E231 missing whitespace after ','
+DEBKS_multi.py:310:95: E231 missing whitespace after ','
+DEBKS_multi.py:310:100: E231 missing whitespace after ','
+DEBKS_multi.py:310:106: E231 missing whitespace after ','
+DEBKS_multi.py:310:120: E231 missing whitespace after ','
+DEBKS_multi.py:310:126: E231 missing whitespace after ','
+DEBKS_multi.py:310:132: E231 missing whitespace after ','
+DEBKS_multi.py:310:139: E231 missing whitespace after ','
+DEBKS_multi.py:311:15: E225 missing whitespace around operator
+DEBKS_multi.py:312:15: E225 missing whitespace around operator
+DEBKS_multi.py:313:9: E265 block comment should start with '# '
+DEBKS_multi.py:314:9: E265 block comment should start with '# '
+DEBKS_multi.py:315:9: E265 block comment should start with '# '
+DEBKS_multi.py:316:17: E225 missing whitespace around operator
+DEBKS_multi.py:316:20: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:316:20: E231 missing whitespace after ';'
+DEBKS_multi.py:316:29: E225 missing whitespace around operator
+DEBKS_multi.py:316:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:316:32: E231 missing whitespace after ';'
+DEBKS_multi.py:316:44: E225 missing whitespace around operator
+DEBKS_multi.py:316:46: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:316:46: E231 missing whitespace after ';'
+DEBKS_multi.py:316:61: E225 missing whitespace around operator
+DEBKS_multi.py:318:51: E231 missing whitespace after ','
+DEBKS_multi.py:318:61: E231 missing whitespace after ','
+DEBKS_multi.py:318:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:318:83: E231 missing whitespace after ','
+DEBKS_multi.py:318:95: E231 missing whitespace after ','
+DEBKS_multi.py:318:101: E231 missing whitespace after ','
+DEBKS_multi.py:318:108: E231 missing whitespace after ','
+DEBKS_multi.py:318:113: E231 missing whitespace after ','
+DEBKS_multi.py:318:140: E231 missing whitespace after ','
+DEBKS_multi.py:318:167: E231 missing whitespace after ','
+DEBKS_multi.py:318:181: E231 missing whitespace after ','
+DEBKS_multi.py:318:188: E231 missing whitespace after ','
+DEBKS_multi.py:319:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:319:44: E231 missing whitespace after ';'
+DEBKS_multi.py:319:56: E225 missing whitespace around operator
+DEBKS_multi.py:320:13: E265 block comment should start with '# '
+DEBKS_multi.py:320:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:322:51: E231 missing whitespace after ','
+DEBKS_multi.py:322:61: E231 missing whitespace after ','
+DEBKS_multi.py:322:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:322:83: E231 missing whitespace after ','
+DEBKS_multi.py:322:95: E231 missing whitespace after ','
+DEBKS_multi.py:322:101: E231 missing whitespace after ','
+DEBKS_multi.py:322:108: E231 missing whitespace after ','
+DEBKS_multi.py:322:113: E231 missing whitespace after ','
+DEBKS_multi.py:322:140: E231 missing whitespace after ','
+DEBKS_multi.py:322:167: E231 missing whitespace after ','
+DEBKS_multi.py:322:181: E231 missing whitespace after ','
+DEBKS_multi.py:322:188: E231 missing whitespace after ','
+DEBKS_multi.py:323:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:323:44: E231 missing whitespace after ';'
+DEBKS_multi.py:323:56: E225 missing whitespace around operator
+DEBKS_multi.py:324:13: E265 block comment should start with '# '
+DEBKS_multi.py:324:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:325:9: E265 block comment should start with '# '
+DEBKS_multi.py:326:13: E225 missing whitespace around operator
+DEBKS_multi.py:326:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:326:22: E231 missing whitespace after ';'
+DEBKS_multi.py:326:27: E225 missing whitespace around operator
+DEBKS_multi.py:327:9: E265 block comment should start with '# '
+DEBKS_multi.py:327:80: E501 line too long (118 > 79 characters)
+DEBKS_multi.py:328:17: E225 missing whitespace around operator
+DEBKS_multi.py:329:24: E225 missing whitespace around operator
+DEBKS_multi.py:330:21: E225 missing whitespace around operator
+DEBKS_multi.py:331:5: E265 block comment should start with '# '
+DEBKS_multi.py:331:80: E501 line too long (125 > 79 characters)
+DEBKS_multi.py:332:5: E265 block comment should start with '# '
+DEBKS_multi.py:333:5: E265 block comment should start with '# '
+DEBKS_multi.py:334:13: E225 missing whitespace around operator
+DEBKS_multi.py:335:28: E231 missing whitespace after ','
+DEBKS_multi.py:335:34: E231 missing whitespace after ','
+DEBKS_multi.py:335:39: E231 missing whitespace after ','
+DEBKS_multi.py:335:41: E231 missing whitespace after ','
+DEBKS_multi.py:335:43: E231 missing whitespace after ','
+DEBKS_multi.py:335:48: E231 missing whitespace after ','
+DEBKS_multi.py:336:1: W293 blank line contains whitespace
+DEBKS_multi.py:337:5: E265 block comment should start with '# '
+DEBKS_multi.py:338:16: E225 missing whitespace around operator
+DEBKS_multi.py:338:18: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:338:18: E231 missing whitespace after ';'
+DEBKS_multi.py:338:30: E225 missing whitespace around operator
+DEBKS_multi.py:338:34: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:338:34: E231 missing whitespace after ';'
+DEBKS_multi.py:338:40: E225 missing whitespace around operator
+DEBKS_multi.py:338:42: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:338:42: E231 missing whitespace after ';'
+DEBKS_multi.py:338:55: E225 missing whitespace around operator
+DEBKS_multi.py:339:23: E225 missing whitespace around operator
+DEBKS_multi.py:339:29: E227 missing whitespace around bitwise or shift operator
+DEBKS_multi.py:339:36: E225 missing whitespace around operator
+DEBKS_multi.py:340:14: E225 missing whitespace around operator
+DEBKS_multi.py:341:9: E265 block comment should start with '# '
+DEBKS_multi.py:341:80: E501 line too long (158 > 79 characters)
+DEBKS_multi.py:342:9: E265 block comment should start with '# '
+DEBKS_multi.py:342:80: E501 line too long (158 > 79 characters)
+DEBKS_multi.py:343:14: E225 missing whitespace around operator
+DEBKS_multi.py:343:44: E231 missing whitespace after ','
+DEBKS_multi.py:343:53: E231 missing whitespace after ','
+DEBKS_multi.py:343:73: E231 missing whitespace after ','
+DEBKS_multi.py:343:80: E501 line too long (180 > 79 characters)
+DEBKS_multi.py:343:82: E231 missing whitespace after ','
+DEBKS_multi.py:343:85: E231 missing whitespace after ','
+DEBKS_multi.py:343:90: E231 missing whitespace after ','
+DEBKS_multi.py:343:95: E231 missing whitespace after ','
+DEBKS_multi.py:343:122: E231 missing whitespace after ','
+DEBKS_multi.py:343:149: E231 missing whitespace after ','
+DEBKS_multi.py:343:163: E231 missing whitespace after ','
+DEBKS_multi.py:343:170: E231 missing whitespace after ','
+DEBKS_multi.py:344:14: E225 missing whitespace around operator
+DEBKS_multi.py:344:44: E231 missing whitespace after ','
+DEBKS_multi.py:344:53: E231 missing whitespace after ','
+DEBKS_multi.py:344:73: E231 missing whitespace after ','
+DEBKS_multi.py:344:80: E501 line too long (180 > 79 characters)
+DEBKS_multi.py:344:82: E231 missing whitespace after ','
+DEBKS_multi.py:344:85: E231 missing whitespace after ','
+DEBKS_multi.py:344:90: E231 missing whitespace after ','
+DEBKS_multi.py:344:95: E231 missing whitespace after ','
+DEBKS_multi.py:344:122: E231 missing whitespace after ','
+DEBKS_multi.py:344:149: E231 missing whitespace after ','
+DEBKS_multi.py:344:163: E231 missing whitespace after ','
+DEBKS_multi.py:344:170: E231 missing whitespace after ','
+DEBKS_multi.py:345:15: E225 missing whitespace around operator
+DEBKS_multi.py:346:15: E225 missing whitespace around operator
+DEBKS_multi.py:347:9: E265 block comment should start with '# '
+DEBKS_multi.py:348:9: E265 block comment should start with '# '
+DEBKS_multi.py:349:17: E225 missing whitespace around operator
+DEBKS_multi.py:349:20: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:349:20: E231 missing whitespace after ';'
+DEBKS_multi.py:349:29: E225 missing whitespace around operator
+DEBKS_multi.py:349:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:349:32: E231 missing whitespace after ';'
+DEBKS_multi.py:349:44: E225 missing whitespace around operator
+DEBKS_multi.py:349:46: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:349:46: E231 missing whitespace after ';'
+DEBKS_multi.py:349:61: E225 missing whitespace around operator
+DEBKS_multi.py:351:51: E231 missing whitespace after ','
+DEBKS_multi.py:351:61: E231 missing whitespace after ','
+DEBKS_multi.py:351:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:351:83: E231 missing whitespace after ','
+DEBKS_multi.py:351:95: E231 missing whitespace after ','
+DEBKS_multi.py:351:101: E231 missing whitespace after ','
+DEBKS_multi.py:351:108: E231 missing whitespace after ','
+DEBKS_multi.py:351:113: E231 missing whitespace after ','
+DEBKS_multi.py:351:140: E231 missing whitespace after ','
+DEBKS_multi.py:351:167: E231 missing whitespace after ','
+DEBKS_multi.py:351:181: E231 missing whitespace after ','
+DEBKS_multi.py:351:188: E231 missing whitespace after ','
+DEBKS_multi.py:352:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:352:44: E231 missing whitespace after ';'
+DEBKS_multi.py:352:56: E225 missing whitespace around operator
+DEBKS_multi.py:354:51: E231 missing whitespace after ','
+DEBKS_multi.py:354:61: E231 missing whitespace after ','
+DEBKS_multi.py:354:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:354:83: E231 missing whitespace after ','
+DEBKS_multi.py:354:95: E231 missing whitespace after ','
+DEBKS_multi.py:354:101: E231 missing whitespace after ','
+DEBKS_multi.py:354:108: E231 missing whitespace after ','
+DEBKS_multi.py:354:113: E231 missing whitespace after ','
+DEBKS_multi.py:354:140: E231 missing whitespace after ','
+DEBKS_multi.py:354:167: E231 missing whitespace after ','
+DEBKS_multi.py:354:181: E231 missing whitespace after ','
+DEBKS_multi.py:354:188: E231 missing whitespace after ','
+DEBKS_multi.py:355:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:355:44: E231 missing whitespace after ';'
+DEBKS_multi.py:355:56: E225 missing whitespace around operator
+DEBKS_multi.py:356:13: E225 missing whitespace around operator
+DEBKS_multi.py:356:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:356:22: E231 missing whitespace after ';'
+DEBKS_multi.py:356:27: E225 missing whitespace around operator
+DEBKS_multi.py:357:17: E225 missing whitespace around operator
+DEBKS_multi.py:358:24: E225 missing whitespace around operator
+DEBKS_multi.py:359:21: E225 missing whitespace around operator
+DEBKS_multi.py:360:13: E225 missing whitespace around operator
+DEBKS_multi.py:361:28: E231 missing whitespace after ','
+DEBKS_multi.py:361:34: E231 missing whitespace after ','
+DEBKS_multi.py:361:39: E231 missing whitespace after ','
+DEBKS_multi.py:361:41: E231 missing whitespace after ','
+DEBKS_multi.py:361:43: E231 missing whitespace after ','
+DEBKS_multi.py:361:48: E231 missing whitespace after ','
+DEBKS_multi.py:362:24: E231 missing whitespace after ','
+DEBKS_multi.py:362:30: E231 missing whitespace after ','
+DEBKS_multi.py:362:35: E231 missing whitespace after ','
+DEBKS_multi.py:362:42: E231 missing whitespace after ','
+DEBKS_multi.py:362:49: E231 missing whitespace after ','
+DEBKS_multi.py:362:54: E231 missing whitespace after ','
+DEBKS_multi.py:364:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:364:40: E231 missing whitespace after ','
+DEBKS_multi.py:364:43: E231 missing whitespace after ','
+DEBKS_multi.py:364:46: E231 missing whitespace after ','
+DEBKS_multi.py:364:49: E231 missing whitespace after ','
+DEBKS_multi.py:364:76: E231 missing whitespace after ','
+DEBKS_multi.py:364:80: E501 line too long (103 > 79 characters)
+DEBKS_multi.py:365:5: E265 block comment should start with '# '
+DEBKS_multi.py:366:9: E225 missing whitespace around operator
+DEBKS_multi.py:366:20: E231 missing whitespace after ','
+DEBKS_multi.py:366:23: E231 missing whitespace after ','
+DEBKS_multi.py:366:50: E231 missing whitespace after ','
+DEBKS_multi.py:366:77: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:366:77: E231 missing whitespace after ';'
+DEBKS_multi.py:366:80: E501 line too long (149 > 79 characters)
+DEBKS_multi.py:366:82: E225 missing whitespace around operator
+DEBKS_multi.py:366:93: E231 missing whitespace after ','
+DEBKS_multi.py:366:96: E231 missing whitespace after ','
+DEBKS_multi.py:366:123: E231 missing whitespace after ','
+DEBKS_multi.py:367:16: E225 missing whitespace around operator
+DEBKS_multi.py:367:18: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:367:18: E231 missing whitespace after ';'
+DEBKS_multi.py:367:30: E225 missing whitespace around operator
+DEBKS_multi.py:367:34: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:367:34: E231 missing whitespace after ';'
+DEBKS_multi.py:367:40: E225 missing whitespace around operator
+DEBKS_multi.py:367:42: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:367:42: E231 missing whitespace after ';'
+DEBKS_multi.py:367:55: E225 missing whitespace around operator
+DEBKS_multi.py:368:11: E225 missing whitespace around operator
+DEBKS_multi.py:369:11: E225 missing whitespace around operator
+DEBKS_multi.py:370:9: E225 missing whitespace around operator
+DEBKS_multi.py:371:9: E225 missing whitespace around operator
+DEBKS_multi.py:372:12: E225 missing whitespace around operator
+DEBKS_multi.py:373:13: E225 missing whitespace around operator
+DEBKS_multi.py:374:12: E225 missing whitespace around operator
+DEBKS_multi.py:375:13: E225 missing whitespace around operator
+DEBKS_multi.py:376:5: E265 block comment should start with '# '
+DEBKS_multi.py:377:1: W293 blank line contains whitespace
+DEBKS_multi.py:378:5: E265 block comment should start with '# '
+DEBKS_multi.py:379:23: E225 missing whitespace around operator
+DEBKS_multi.py:379:29: E227 missing whitespace around bitwise or shift operator
+DEBKS_multi.py:379:36: E225 missing whitespace around operator
+DEBKS_multi.py:380:14: E225 missing whitespace around operator
+DEBKS_multi.py:381:9: E265 block comment should start with '# '
+DEBKS_multi.py:382:15: E225 missing whitespace around operator
+DEBKS_multi.py:383:15: E225 missing whitespace around operator
+DEBKS_multi.py:384:9: E265 block comment should start with '# '
+DEBKS_multi.py:385:9: E265 block comment should start with '# '
+DEBKS_multi.py:386:33: E225 missing whitespace around operator
+DEBKS_multi.py:386:56: E261 at least two spaces before inline comment
+DEBKS_multi.py:386:56: E262 inline comment should start with '# '
+DEBKS_multi.py:386:80: E501 line too long (87 > 79 characters)
+DEBKS_multi.py:387:42: E231 missing whitespace after ','
+DEBKS_multi.py:387:64: E231 missing whitespace after ','
+DEBKS_multi.py:387:77: E231 missing whitespace after ','
+DEBKS_multi.py:387:80: E501 line too long (144 > 79 characters)
+DEBKS_multi.py:387:88: E231 missing whitespace after ','
+DEBKS_multi.py:387:93: E231 missing whitespace after ','
+DEBKS_multi.py:387:98: E231 missing whitespace after ','
+DEBKS_multi.py:387:104: E231 missing whitespace after ','
+DEBKS_multi.py:387:119: E231 missing whitespace after ','
+DEBKS_multi.py:387:134: E231 missing whitespace after ','
+DEBKS_multi.py:388:44: E231 missing whitespace after ','
+DEBKS_multi.py:388:54: E231 missing whitespace after ','
+DEBKS_multi.py:388:57: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:388:57: E231 missing whitespace after ';'
+DEBKS_multi.py:388:64: E225 missing whitespace around operator
+DEBKS_multi.py:389:14: E261 at least two spaces before inline comment
+DEBKS_multi.py:389:14: E262 inline comment should start with '# '
+DEBKS_multi.py:390:42: E231 missing whitespace after ','
+DEBKS_multi.py:390:64: E231 missing whitespace after ','
+DEBKS_multi.py:390:77: E231 missing whitespace after ','
+DEBKS_multi.py:390:80: E501 line too long (144 > 79 characters)
+DEBKS_multi.py:390:88: E231 missing whitespace after ','
+DEBKS_multi.py:390:93: E231 missing whitespace after ','
+DEBKS_multi.py:390:98: E231 missing whitespace after ','
+DEBKS_multi.py:390:104: E231 missing whitespace after ','
+DEBKS_multi.py:390:119: E231 missing whitespace after ','
+DEBKS_multi.py:390:134: E231 missing whitespace after ','
+DEBKS_multi.py:391:44: E231 missing whitespace after ','
+DEBKS_multi.py:391:54: E231 missing whitespace after ','
+DEBKS_multi.py:391:57: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:391:57: E231 missing whitespace after ';'
+DEBKS_multi.py:391:64: E225 missing whitespace around operator
+DEBKS_multi.py:392:9: E265 block comment should start with '# '
+DEBKS_multi.py:392:80: E501 line too long (88 > 79 characters)
+DEBKS_multi.py:393:9: E265 block comment should start with '# '
+DEBKS_multi.py:395:15: E225 missing whitespace around operator
+DEBKS_multi.py:395:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:395:22: E231 missing whitespace after ';'
+DEBKS_multi.py:395:29: E225 missing whitespace around operator
+DEBKS_multi.py:396:9: E265 block comment should start with '# '
+DEBKS_multi.py:397:17: E225 missing whitespace around operator
+DEBKS_multi.py:397:20: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:397:20: E231 missing whitespace after ';'
+DEBKS_multi.py:397:29: E225 missing whitespace around operator
+DEBKS_multi.py:397:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:397:32: E231 missing whitespace after ';'
+DEBKS_multi.py:397:44: E225 missing whitespace around operator
+DEBKS_multi.py:397:46: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:397:46: E231 missing whitespace after ';'
+DEBKS_multi.py:397:61: E225 missing whitespace around operator
+DEBKS_multi.py:398:9: E265 block comment should start with '# '
+DEBKS_multi.py:400:51: E231 missing whitespace after ','
+DEBKS_multi.py:400:61: E231 missing whitespace after ','
+DEBKS_multi.py:400:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:400:83: E231 missing whitespace after ','
+DEBKS_multi.py:400:95: E231 missing whitespace after ','
+DEBKS_multi.py:400:101: E231 missing whitespace after ','
+DEBKS_multi.py:400:108: E231 missing whitespace after ','
+DEBKS_multi.py:400:113: E231 missing whitespace after ','
+DEBKS_multi.py:400:140: E231 missing whitespace after ','
+DEBKS_multi.py:400:167: E231 missing whitespace after ','
+DEBKS_multi.py:400:181: E231 missing whitespace after ','
+DEBKS_multi.py:400:188: E231 missing whitespace after ','
+DEBKS_multi.py:401:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:401:44: E231 missing whitespace after ';'
+DEBKS_multi.py:401:56: E225 missing whitespace around operator
+DEBKS_multi.py:401:72: E703 statement ends with a semicolon
+DEBKS_multi.py:401:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:401:73: E262 inline comment should start with '# '
+DEBKS_multi.py:401:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:402:13: E265 block comment should start with '# '
+DEBKS_multi.py:402:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:404:51: E231 missing whitespace after ','
+DEBKS_multi.py:404:61: E231 missing whitespace after ','
+DEBKS_multi.py:404:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:404:83: E231 missing whitespace after ','
+DEBKS_multi.py:404:95: E231 missing whitespace after ','
+DEBKS_multi.py:404:101: E231 missing whitespace after ','
+DEBKS_multi.py:404:108: E231 missing whitespace after ','
+DEBKS_multi.py:404:113: E231 missing whitespace after ','
+DEBKS_multi.py:404:140: E231 missing whitespace after ','
+DEBKS_multi.py:404:167: E231 missing whitespace after ','
+DEBKS_multi.py:404:181: E231 missing whitespace after ','
+DEBKS_multi.py:404:188: E231 missing whitespace after ','
+DEBKS_multi.py:405:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:405:44: E231 missing whitespace after ';'
+DEBKS_multi.py:405:56: E225 missing whitespace around operator
+DEBKS_multi.py:405:72: E703 statement ends with a semicolon
+DEBKS_multi.py:405:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:405:73: E262 inline comment should start with '# '
+DEBKS_multi.py:405:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:406:13: E265 block comment should start with '# '
+DEBKS_multi.py:406:80: E501 line too long (136 > 79 characters)
+DEBKS_multi.py:407:9: E265 block comment should start with '# '
+DEBKS_multi.py:408:13: E225 missing whitespace around operator
+DEBKS_multi.py:408:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:408:22: E231 missing whitespace after ';'
+DEBKS_multi.py:408:27: E225 missing whitespace around operator
+DEBKS_multi.py:409:9: E265 block comment should start with '# '
+DEBKS_multi.py:409:80: E501 line too long (118 > 79 characters)
+DEBKS_multi.py:410:17: E225 missing whitespace around operator
+DEBKS_multi.py:411:24: E225 missing whitespace around operator
+DEBKS_multi.py:412:21: E225 missing whitespace around operator
+DEBKS_multi.py:413:13: E225 missing whitespace around operator
+DEBKS_multi.py:414:28: E231 missing whitespace after ','
+DEBKS_multi.py:414:34: E231 missing whitespace after ','
+DEBKS_multi.py:414:39: E231 missing whitespace after ','
+DEBKS_multi.py:414:41: E231 missing whitespace after ','
+DEBKS_multi.py:414:43: E231 missing whitespace after ','
+DEBKS_multi.py:414:48: E231 missing whitespace after ','
+DEBKS_multi.py:415:5: E265 block comment should start with '# '
+DEBKS_multi.py:415:80: E501 line too long (116 > 79 characters)
+DEBKS_multi.py:416:5: E265 block comment should start with '# '
+DEBKS_multi.py:417:1: W293 blank line contains whitespace
+DEBKS_multi.py:418:5: E265 block comment should start with '# '
+DEBKS_multi.py:419:16: E225 missing whitespace around operator
+DEBKS_multi.py:419:18: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:419:18: E231 missing whitespace after ';'
+DEBKS_multi.py:419:30: E225 missing whitespace around operator
+DEBKS_multi.py:419:34: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:419:34: E231 missing whitespace after ';'
+DEBKS_multi.py:419:40: E225 missing whitespace around operator
+DEBKS_multi.py:419:42: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:419:42: E231 missing whitespace after ';'
+DEBKS_multi.py:419:55: E225 missing whitespace around operator
+DEBKS_multi.py:420:23: E225 missing whitespace around operator
+DEBKS_multi.py:420:29: E227 missing whitespace around bitwise or shift operator
+DEBKS_multi.py:420:36: E225 missing whitespace around operator
+DEBKS_multi.py:421:14: E225 missing whitespace around operator
+DEBKS_multi.py:422:33: E225 missing whitespace around operator
+DEBKS_multi.py:422:56: E261 at least two spaces before inline comment
+DEBKS_multi.py:422:56: E262 inline comment should start with '# '
+DEBKS_multi.py:422:80: E501 line too long (87 > 79 characters)
+DEBKS_multi.py:423:51: E231 missing whitespace after ','
+DEBKS_multi.py:423:60: E231 missing whitespace after ','
+DEBKS_multi.py:423:80: E501 line too long (214 > 79 characters)
+DEBKS_multi.py:423:82: E231 missing whitespace after ','
+DEBKS_multi.py:423:91: E231 missing whitespace after ','
+DEBKS_multi.py:423:94: E231 missing whitespace after ','
+DEBKS_multi.py:423:99: E231 missing whitespace after ','
+DEBKS_multi.py:423:104: E231 missing whitespace after ','
+DEBKS_multi.py:423:107: E231 missing whitespace after ','
+DEBKS_multi.py:423:110: E231 missing whitespace after ','
+DEBKS_multi.py:423:115: E231 missing whitespace after ','
+DEBKS_multi.py:423:120: E231 missing whitespace after ','
+DEBKS_multi.py:423:147: E231 missing whitespace after ','
+DEBKS_multi.py:423:174: E231 missing whitespace after ','
+DEBKS_multi.py:423:189: E231 missing whitespace after ','
+DEBKS_multi.py:423:204: E231 missing whitespace after ','
+DEBKS_multi.py:424:44: E231 missing whitespace after ','
+DEBKS_multi.py:424:54: E231 missing whitespace after ','
+DEBKS_multi.py:424:57: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:424:57: E231 missing whitespace after ';'
+DEBKS_multi.py:424:64: E225 missing whitespace around operator
+DEBKS_multi.py:425:14: E261 at least two spaces before inline comment
+DEBKS_multi.py:425:14: E262 inline comment should start with '# '
+DEBKS_multi.py:426:51: E231 missing whitespace after ','
+DEBKS_multi.py:426:60: E231 missing whitespace after ','
+DEBKS_multi.py:426:80: E501 line too long (214 > 79 characters)
+DEBKS_multi.py:426:82: E231 missing whitespace after ','
+DEBKS_multi.py:426:91: E231 missing whitespace after ','
+DEBKS_multi.py:426:94: E231 missing whitespace after ','
+DEBKS_multi.py:426:99: E231 missing whitespace after ','
+DEBKS_multi.py:426:104: E231 missing whitespace after ','
+DEBKS_multi.py:426:107: E231 missing whitespace after ','
+DEBKS_multi.py:426:110: E231 missing whitespace after ','
+DEBKS_multi.py:426:115: E231 missing whitespace after ','
+DEBKS_multi.py:426:120: E231 missing whitespace after ','
+DEBKS_multi.py:426:147: E231 missing whitespace after ','
+DEBKS_multi.py:426:174: E231 missing whitespace after ','
+DEBKS_multi.py:426:189: E231 missing whitespace after ','
+DEBKS_multi.py:426:204: E231 missing whitespace after ','
+DEBKS_multi.py:427:44: E231 missing whitespace after ','
+DEBKS_multi.py:427:54: E231 missing whitespace after ','
+DEBKS_multi.py:427:57: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:427:57: E231 missing whitespace after ';'
+DEBKS_multi.py:427:64: E225 missing whitespace around operator
+DEBKS_multi.py:428:9: E265 block comment should start with '# '
+DEBKS_multi.py:429:17: E225 missing whitespace around operator
+DEBKS_multi.py:429:20: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:429:20: E231 missing whitespace after ';'
+DEBKS_multi.py:429:29: E225 missing whitespace around operator
+DEBKS_multi.py:429:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:429:32: E231 missing whitespace after ';'
+DEBKS_multi.py:429:44: E225 missing whitespace around operator
+DEBKS_multi.py:429:46: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:429:46: E231 missing whitespace after ';'
+DEBKS_multi.py:429:61: E225 missing whitespace around operator
+DEBKS_multi.py:431:51: E231 missing whitespace after ','
+DEBKS_multi.py:431:61: E231 missing whitespace after ','
+DEBKS_multi.py:431:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:431:83: E231 missing whitespace after ','
+DEBKS_multi.py:431:95: E231 missing whitespace after ','
+DEBKS_multi.py:431:101: E231 missing whitespace after ','
+DEBKS_multi.py:431:108: E231 missing whitespace after ','
+DEBKS_multi.py:431:113: E231 missing whitespace after ','
+DEBKS_multi.py:431:140: E231 missing whitespace after ','
+DEBKS_multi.py:431:167: E231 missing whitespace after ','
+DEBKS_multi.py:431:181: E231 missing whitespace after ','
+DEBKS_multi.py:431:188: E231 missing whitespace after ','
+DEBKS_multi.py:432:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:432:44: E231 missing whitespace after ';'
+DEBKS_multi.py:432:56: E225 missing whitespace around operator
+DEBKS_multi.py:432:72: E703 statement ends with a semicolon
+DEBKS_multi.py:432:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:432:73: E262 inline comment should start with '# '
+DEBKS_multi.py:432:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:434:51: E231 missing whitespace after ','
+DEBKS_multi.py:434:61: E231 missing whitespace after ','
+DEBKS_multi.py:434:80: E501 line too long (198 > 79 characters)
+DEBKS_multi.py:434:83: E231 missing whitespace after ','
+DEBKS_multi.py:434:95: E231 missing whitespace after ','
+DEBKS_multi.py:434:101: E231 missing whitespace after ','
+DEBKS_multi.py:434:108: E231 missing whitespace after ','
+DEBKS_multi.py:434:113: E231 missing whitespace after ','
+DEBKS_multi.py:434:140: E231 missing whitespace after ','
+DEBKS_multi.py:434:167: E231 missing whitespace after ','
+DEBKS_multi.py:434:181: E231 missing whitespace after ','
+DEBKS_multi.py:434:188: E231 missing whitespace after ','
+DEBKS_multi.py:435:44: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:435:44: E231 missing whitespace after ';'
+DEBKS_multi.py:435:56: E225 missing whitespace around operator
+DEBKS_multi.py:435:72: E703 statement ends with a semicolon
+DEBKS_multi.py:435:73: E261 at least two spaces before inline comment
+DEBKS_multi.py:435:73: E262 inline comment should start with '# '
+DEBKS_multi.py:435:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:436:13: E225 missing whitespace around operator
+DEBKS_multi.py:436:22: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:436:22: E231 missing whitespace after ';'
+DEBKS_multi.py:436:27: E225 missing whitespace around operator
+DEBKS_multi.py:437:17: E225 missing whitespace around operator
+DEBKS_multi.py:438:24: E225 missing whitespace around operator
+DEBKS_multi.py:439:21: E225 missing whitespace around operator
+DEBKS_multi.py:440:13: E225 missing whitespace around operator
+DEBKS_multi.py:441:28: E231 missing whitespace after ','
+DEBKS_multi.py:441:34: E231 missing whitespace after ','
+DEBKS_multi.py:441:39: E231 missing whitespace after ','
+DEBKS_multi.py:441:41: E231 missing whitespace after ','
+DEBKS_multi.py:441:43: E231 missing whitespace after ','
+DEBKS_multi.py:441:48: E231 missing whitespace after ','
+DEBKS_multi.py:443:24: E231 missing whitespace after ','
+DEBKS_multi.py:443:30: E231 missing whitespace after ','
+DEBKS_multi.py:443:35: E231 missing whitespace after ','
+DEBKS_multi.py:443:42: E231 missing whitespace after ','
+DEBKS_multi.py:443:49: E231 missing whitespace after ','
+DEBKS_multi.py:443:54: E231 missing whitespace after ','
+DEBKS_multi.py:444:5: E265 block comment should start with '# '
+DEBKS_multi.py:446:1: W293 blank line contains whitespace
+DEBKS_multi.py:447:1: E265 block comment should start with '# '
+DEBKS_multi.py:448:23: E231 missing whitespace after ','
+DEBKS_multi.py:448:26: E231 missing whitespace after ','
+DEBKS_multi.py:448:29: E231 missing whitespace after ','
+DEBKS_multi.py:448:32: E231 missing whitespace after ','
+DEBKS_multi.py:448:59: E231 missing whitespace after ','
+DEBKS_multi.py:448:80: E501 line too long (94 > 79 characters)
+DEBKS_multi.py:448:85: E231 missing whitespace after ','
+DEBKS_multi.py:448:90: E231 missing whitespace after ','
+DEBKS_multi.py:449:5: E265 block comment should start with '# '
+DEBKS_multi.py:450:12: E225 missing whitespace around operator
+DEBKS_multi.py:451:18: E231 missing whitespace after ','
+DEBKS_multi.py:453:12: E225 missing whitespace around operator
+DEBKS_multi.py:453:38: E231 missing whitespace after ','
+DEBKS_multi.py:453:41: E231 missing whitespace after ','
+DEBKS_multi.py:453:44: E231 missing whitespace after ','
+DEBKS_multi.py:453:47: E231 missing whitespace after ','
+DEBKS_multi.py:453:74: E231 missing whitespace after ','
+DEBKS_multi.py:453:80: E501 line too long (100 > 79 characters)
+DEBKS_multi.py:454:36: E225 missing whitespace around operator
+DEBKS_multi.py:455:13: E265 block comment should start with '# '
+DEBKS_multi.py:456:22: E231 missing whitespace after ','
+DEBKS_multi.py:458:26: E225 missing whitespace around operator
+DEBKS_multi.py:458:62: E231 missing whitespace after ','
+DEBKS_multi.py:458:65: E231 missing whitespace after ','
+DEBKS_multi.py:458:68: E231 missing whitespace after ','
+DEBKS_multi.py:458:71: E231 missing whitespace after ','
+DEBKS_multi.py:458:80: E501 line too long (124 > 79 characters)
+DEBKS_multi.py:458:98: E231 missing whitespace after ','
+DEBKS_multi.py:459:13: E265 block comment should start with '# '
+DEBKS_multi.py:460:13: E265 block comment should start with '# '
+DEBKS_multi.py:461:13: E265 block comment should start with '# '
+DEBKS_multi.py:461:73: W291 trailing whitespace
+DEBKS_multi.py:462:23: E225 missing whitespace around operator
+DEBKS_multi.py:463:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:463:80: E231 missing whitespace after ','
+DEBKS_multi.py:465:80: E501 line too long (84 > 79 characters)
+DEBKS_multi.py:465:80: E231 missing whitespace after ','
+DEBKS_multi.py:467:1: E265 block comment should start with '# '
+DEBKS_multi.py:468:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:469:7: E225 missing whitespace around operator
+DEBKS_multi.py:469:26: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:469:26: E231 missing whitespace after ';'
+DEBKS_multi.py:469:29: E225 missing whitespace around operator
+DEBKS_multi.py:469:48: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:469:48: E231 missing whitespace after ';'
+DEBKS_multi.py:469:51: E225 missing whitespace around operator
+DEBKS_multi.py:469:70: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:469:70: E231 missing whitespace after ';'
+DEBKS_multi.py:469:73: E225 missing whitespace around operator
+DEBKS_multi.py:469:80: E501 line too long (91 > 79 characters)
+DEBKS_multi.py:470:31: E225 missing whitespace around operator
+DEBKS_multi.py:470:50: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:470:50: E231 missing whitespace after ';'
+DEBKS_multi.py:470:76: E225 missing whitespace around operator
+DEBKS_multi.py:470:80: E501 line too long (94 > 79 characters)
+DEBKS_multi.py:471:9: E225 missing whitespace around operator
+DEBKS_multi.py:471:28: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:471:28: E231 missing whitespace after ';'
+DEBKS_multi.py:471:31: E225 missing whitespace around operator
+DEBKS_multi.py:472:6: E225 missing whitespace around operator
+DEBKS_multi.py:472:25: E231 missing whitespace after ','
+DEBKS_multi.py:472:28: E231 missing whitespace after ','
+DEBKS_multi.py:472:31: E231 missing whitespace after ','
+DEBKS_multi.py:472:34: E231 missing whitespace after ','
+DEBKS_multi.py:472:61: E231 missing whitespace after ','
+DEBKS_multi.py:472:80: E501 line too long (95 > 79 characters)
+DEBKS_multi.py:472:87: E231 missing whitespace after ','
+DEBKS_multi.py:472:92: E231 missing whitespace after ','
+DEBKS_multi.py:475:1: E265 block comment should start with '# '
+DEBKS_multi.py:476:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:477:8: E225 missing whitespace around operator
+DEBKS_multi.py:482:1: E265 block comment should start with '# '
+DEBKS_multi.py:482:80: E501 line too long (80 > 79 characters)
+DEBKS_multi.py:483:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:484:8: E225 missing whitespace around operator
+DEBKS_multi.py:489:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:490:8: E225 missing whitespace around operator
+DEBKS_multi.py:492:12: E225 missing whitespace around operator
+DEBKS_multi.py:495:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:495:16: E231 missing whitespace after ','
+DEBKS_multi.py:496:8: E225 missing whitespace around operator
+DEBKS_multi.py:500:1: W293 blank line contains whitespace
+DEBKS_multi.py:501:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:501:23: E231 missing whitespace after ','
+DEBKS_multi.py:502:9: E225 missing whitespace around operator
+DEBKS_multi.py:502:12: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:502:12: E231 missing whitespace after ';'
+DEBKS_multi.py:502:17: E225 missing whitespace around operator
+DEBKS_multi.py:504:19: E225 missing whitespace around operator
+DEBKS_multi.py:504:33: E225 missing whitespace around operator
+DEBKS_multi.py:505:32: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:505:32: E231 missing whitespace after ';'
+DEBKS_multi.py:506:17: E231 missing whitespace after ','
+DEBKS_multi.py:508:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:508:16: E231 missing whitespace after ','
+DEBKS_multi.py:508:20: E231 missing whitespace after ','
+DEBKS_multi.py:508:47: E231 missing whitespace after ','
+DEBKS_multi.py:509:8: E225 missing whitespace around operator
+DEBKS_multi.py:510:21: E225 missing whitespace around operator
+DEBKS_multi.py:511:20: E225 missing whitespace around operator
+DEBKS_multi.py:513:41: E225 missing whitespace around operator
+DEBKS_multi.py:516:80: E501 line too long (117 > 79 characters)
+DEBKS_multi.py:519:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:520:8: E225 missing whitespace around operator
+DEBKS_multi.py:522:13: E225 missing whitespace around operator
+DEBKS_multi.py:528:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:528:17: E231 missing whitespace after ','
+DEBKS_multi.py:529:18: E225 missing whitespace around operator
+DEBKS_multi.py:529:35: E225 missing whitespace around operator
+DEBKS_multi.py:530:12: E225 missing whitespace around operator
+DEBKS_multi.py:530:37: E231 missing whitespace after ','
+DEBKS_multi.py:530:46: E231 missing whitespace after ','
+DEBKS_multi.py:530:55: E231 missing whitespace after ','
+DEBKS_multi.py:532:12: E225 missing whitespace around operator
+DEBKS_multi.py:532:33: E231 missing whitespace after ','
+DEBKS_multi.py:534:1: E302 expected 2 blank lines, found 0
+DEBKS_multi.py:534:14: E231 missing whitespace after ','
+DEBKS_multi.py:535:11: E225 missing whitespace around operator
+DEBKS_multi.py:536:5: E265 block comment should start with '# '
+DEBKS_multi.py:539:29: E225 missing whitespace around operator
+DEBKS_multi.py:541:5: E265 block comment should start with '# '
+DEBKS_multi.py:542:12: E225 missing whitespace around operator
+DEBKS_multi.py:542:26: E231 missing whitespace after ','
+DEBKS_multi.py:542:43: E702 multiple statements on one line (semicolon)
+DEBKS_multi.py:542:43: E231 missing whitespace after ';'
+DEBKS_multi.py:542:45: E225 missing whitespace around operator
+DEBKS_multi.py:543:5: E265 block comment should start with '# '
+DEBKS_multi.py:548:1: E302 expected 2 blank lines, found 0
+DEBKS_multi.py:549:9: E117 over-indented
+DEBKS_multi.py:549:12: E225 missing whitespace around operator
+DEBKS_multi.py:554:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:555:7: E225 missing whitespace around operator
+DEBKS_multi.py:556:6: E225 missing whitespace around operator
+DEBKS_multi.py:556:15: E231 missing whitespace after ','
+DEBKS_multi.py:556:17: E231 missing whitespace after ','
+DEBKS_multi.py:557:6: E225 missing whitespace around operator
+DEBKS_multi.py:557:16: E231 missing whitespace after ','
+DEBKS_multi.py:558:7: E225 missing whitespace around operator
+DEBKS_multi.py:558:17: E231 missing whitespace after ','
+DEBKS_multi.py:559:10: E225 missing whitespace around operator
+DEBKS_multi.py:562:15: E225 missing whitespace around operator
+DEBKS_multi.py:563:19: E225 missing whitespace around operator
+DEBKS_multi.py:565:52: E231 missing whitespace after ','
+DEBKS_multi.py:566:8: E225 missing whitespace around operator
+DEBKS_multi.py:571:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:571:18: E231 missing whitespace after ','
+DEBKS_multi.py:571:22: E231 missing whitespace after ','
+DEBKS_multi.py:571:49: E231 missing whitespace after ','
+DEBKS_multi.py:573:14: E211 whitespace before '('
+DEBKS_multi.py:573:20: E231 missing whitespace after ','
+DEBKS_multi.py:573:24: E231 missing whitespace after ','
+DEBKS_multi.py:573:51: E231 missing whitespace after ','
+DEBKS_multi.py:574:12: E225 missing whitespace around operator
+DEBKS_multi.py:575:12: E225 missing whitespace around operator
+DEBKS_multi.py:578:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:578:13: E231 missing whitespace after ','
+DEBKS_multi.py:579:56: E712 comparison to True should be 'if cond is True:' or 'if cond:'
+DEBKS_multi.py:579:58: E225 missing whitespace around operator
+DEBKS_multi.py:581:5: E266 too many leading '#' for block comment
+DEBKS_multi.py:582:1: E302 expected 2 blank lines, found 1
+DEBKS_multi.py:582:36: E231 missing whitespace after ','
+DEBKS_multi.py:583:19: E999 SyntaxError: invalid syntax
+DEBKS_multi.py:584:9: E225 missing whitespace around operator
+DEBKS_multi.py:585:16: E225 missing whitespace around operator
+DEBKS_multi.py:585:44: E231 missing whitespace after ','
+DEBKS_multi.py:588:6: E225 missing whitespace around operator
+DEBKS_multi.py:588:39: E231 missing whitespace after ','
