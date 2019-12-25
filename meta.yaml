@@ -8,28 +8,18 @@ source:
 build:
   entry_points:
     - DEBKS=debks.DEBKS_main:main
-
 requirements:
   host:
-    - python>=3
-    - scipy>=1.2.1
-    - pysam>=0.15.2
-    - pandas>=0.24.2
-    - circexplorer2>=2.3.6
-    - star>=2.6.1
-    - samtools>=1.9
-    - ucsc-gtftogenepred
+    - python=3.7
 
   run:
-    - python>=3
+    - python=3.7
     - scipy>=1.2.1
     - pysam>=0.15.2
     - pandas>=0.24.2
     - circexplorer2>=2.3.6
-    - star>=2.6.1
-    - samtools>=1.9
-    - ucsc-gtftogenepred
-
+    - star>=2.5.1
+    - numpy
 
 about:
   home: https://github.com/yangence/DEBKS

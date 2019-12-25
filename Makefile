@@ -2,7 +2,7 @@
 
 
 help:
-	@echo "build - buil egg"
+	@echo "build - build egg"
 	@echo "install - install egg"
 	@echo "clean - remove all build, test, coverage and Python artifacts"
 	@echo "clean-build - remove build artifacts"

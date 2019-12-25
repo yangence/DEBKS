@@ -95,7 +95,7 @@ DEBKS -g hg19.fa -s1 sample_1.txt -s2 sample_2.txt -STARindex hg19_STAR/ \
 In this mode, users can map RNA-seq reads by themself with the following command:
 
 ```bash
-STAR ---genomeDir STARIndexDir -chimSegmentMin anchorLength \
+STAR --genomeDir STARIndexDir --chimSegmentMin anchorLength \
     --runThreadN threads --outSAMtype BAM Unsorted --alignSJDBoverhangMin anchorLength \
     --alignSJoverhangMin anchorLength	--chimJunctionOverhangMin anchorLength \
     --outSJfilterOverhangMin -1 anchorLength -1 -1
@@ -147,7 +147,7 @@ DEBKS -g genomeFasta \
 
 ```bash
 DEBKS -g genomeFasta -s1CJ sample_1.CJ.txt -s2CJ sample_2.CJ.txt -s1SJ sample_1.SJ.txt \
-   -S2SJ sample_2.SJ.txt -gtf gencode.v19.annotation.gtf -o out_test  -t 40 -read pair -len 150 -c 0.1 -a 6
+   -s2sJ sample_2.SJ.txt -gtf gencode.v19.annotation.gtf -o out_test  -t 40 -read pair -len 150 -c 0.1 -a 6
 ```
 
 ### Required Parameters:
@@ -178,14 +178,18 @@ DEBKS -g genomeFasta -s1CJ sample_1.CJ.txt -s2CJ sample_2.CJ.txt -s1SJ sample_1.
 Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1SJ -s2SJ
 ### Optional Parameters:
 	-h, --help              Show this help message and exit
-	
+
+	-p                      Sample 1 group and sample 2 group is paired
+
+	-n          <int>       Required total juction reads in all samples to filter out low expressed circRNAs [2*samples]
+
 	-t          <int>       Number of processors [1]
 
 	-c          <float>     Required PBSI difference cutoff between the two samples [0.01]
 
-	-a          <int>       Anchor length for counting chimeric or splicing junctions [6]
+	-a          <int>       Minimum overhang length for counting chimeric or splicing junctions [6]
 
-	-KeepTemp               Keep the temporary files. Disable by default.
+	-keepTemp               Keep the temporary files. Disable by default.
 
 ### DEBKS Results Summary
 
@@ -224,4 +228,4 @@ Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1S
 
 ## Copyright and License Information
 
-Copyright (C) 2019 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/blob/master/LICENSE) file for license rights and limitations.
+Copyright (C) 2020 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/blob/master/LICENSE) file for license rights and limitations.

@@ -4,7 +4,7 @@
 author: Zelin Liu
 email: zlliu@bjmu.edu.cn
 license: GPL3
-detail: Analysis differential back-spliced in of ribo-zero RNA-seq
+detail: Analysis differential back-spliced in of rRNA-depleted RNA-seq
 """
 from .version import __version__
 # DEBKS version
@@ -13,25 +13,12 @@ DEBKS_ver = __version__
 helpInfo = '''
 Usage (with FASTQ files):\n\tDEBKS -g genomeFasta -s1 s1File -s2 s2File  -STARindex STARindexDir -gtf gtfFile -o outDir -read readType -len readLength [options]*
 
-Usage (with chimeric and spliced junction files):\n\tDEBKS -g genomeFasta -s1CJ s1CJFile -s2CJ s2CJFile -s1SJ s1SJFile -s2SJ s2SJFile -gtf gtfFile -o outDir -read readType -len readLength [options]*
+Usage (with junction files):\n\tDEBKS -g genomeFasta -s1CJ s1CJFile -s2CJ s2CJFile -s1SJ s1SJFile -s2SJ s2SJFile -gtf gtfFile -o outDir -read readType -len readLength [options]*
 
-DEBKS '''+DEBKS_ver+''' : Analysis of differential percent back-spliced in (C) Zelin Liu, 2019
+DEBKS '''+DEBKS_ver+''' : Analysis of differential percent back-spliced in (C) Zelin Liu, 2020
 ###Required Parameters:
+
 	-g          <str>       Genome Fasta file
-
-	-STARindex  <str>       STAR alignment index directory
-
-	-s1         <str>       Fastq files of sample 1, replicates in different lines, paired files are separated by semicolon
-
-	-s2         <str>       Fastq files of sample 2, replicates in different lines, paired files are separated by semicolon
-
-	-s1CJ       <str>       Chimeric junction of sample 1 group, replicates in different lines
-
-	-s2CJ       <str>       Chimeric junction of sample 2 group, replicates in different lines
-
-	-s1SJ       <str>       Spliced junction of sample 1 group, replicates in different lines
-
-	-s2SJ       <str>       Spliced junction of sample 2 group, replicates in different lines
 
 	-gtf        <str>       GTF file
 
@@ -41,17 +28,39 @@ DEBKS '''+DEBKS_ver+''' : Analysis of differential percent back-spliced in (C) Z
 
 	-len        <int>       Read length of RNA-seq reads
 
+###Only required with FASTQ files
+
+	-STARindex  <str>       STAR alignment index directory
+
+	-s1         <str>       Fastq files of sample 1, replicates in different lines, paired files are separated by semicolon
+
+	-s2         <str>       Fastq files of sample 2, replicates in different lines, paired files are separated by semicolon
+
+###Only required with junction files
+
+	-s1CJ       <str>       Chimeric junction of sample 1 group, replicates in different lines
+
+	-s2CJ       <str>       Chimeric junction of sample 2 group, replicates in different lines
+
+	-s1SJ       <str>       Spliced junction of sample 1 group, replicates in different lines
+
+	-s2SJ       <str>       Spliced junction of sample 2 group, replicates in different lines
 
 ###Optional Parameters:
+
 	-h, --help              Show this help message and exit
+
+	-p                      Sample 1 group and sample 2 group is paired
+
+	-n          <int>       Required total juction reads in all samples to filter out low expressed circRNAs [2*samples]
 
 	-t          <int>       Number of processors [1]
 
-	-c          <float>     Required PBSI difference cutoff between the two samples [0.01]
+	-c          <float>     Required PBSI difference cutoff between the two samples [0.05]
 
-	-a          <int>       Anchor length for counting chimeric or splicing junctions [6]
+	-a          <int>       Minimum overhang length for counting chimeric or splicing junctions [6]
 
-	-KeepTemp               Keep the temporary files. Disable by default.
+	-keepTemp               Keep the temporary files. Disable by default.
 '''
 import sys
 # python version
@@ -63,15 +72,14 @@ if sys.version_info[0] < 3:
 '''
 # import libraries
 import subprocess
-import re,os,warnings,math,scipy,itertools,logging,time,datetime,pysam,traceback
+import re,os,warnings,math,scipy,itertools,logging,time,datetime,pysam,traceback,gzip
 from multiprocessing import Pool
 from math import log
 import pandas as pd
 import numpy as np
 from numpy import *
-from .rMATs import *
 np.seterr(divide='ignore',invalid='ignore')
-
+########## functions ############
 # system command
 def commandRun(cmd):
     p= subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -88,328 +96,344 @@ def listToString(x):
     for a in x:
         rVal += a+' '
     return rVal
+####################
 
-def main():
-########## functions ############
+# software required
+# STAR, gtfToGenePred, CIRCexplorer2
+status,output=commandRun('STAR')
+if status !=0:
+    print ("Error: STAR is required")
+    sys.exit(-1)
+    
+status,output=commandRun('gtfToGenePred')
+if status !=255:
+    print ("Error: gtfToGenePred is required")
+    sys.exit(-1)
+    
+status,output=commandRun('CIRCexplorer2')
+if status !=1:
+    print ("Error: CIRCexplorer2 is required")
+    sys.exit(-1)
+#
+##### parameter variables ####
+### required values
+gtf=''     ## gtf file 
+outDir=''    ## output directory
+readLength = 0 ## read length
+readType = ''  ## read type, single or pair
+threads = 1
+genomeDir= ''
+genomeFasta=''
+#
+### input
+s1='' ## sample_1 fastq name
+s2='' ## sample_2 fastq name
+s1CJ='' ## sample_1 chimeric junction file name
+s2CJ='' ## sample_2 chimeric junction file name
+s1SJ='' ## sample_1 splicing junction file name
+s2SJ='' ## sample_1 splicing junction file name
 
-    # software required
-    # STAR, gtfToGenePred, CIRCexplorer2
-    status,output=commandRun('STAR')
-    if status !=0:
-        print ("Error: STAR is required")
-        sys.exit(-1)
-        
-    status,output=commandRun('gtfToGenePred')
-    if status !=255:
-        print ("Error: gtfToGenePred is required")
-        sys.exit(-1)
-        
-    status,output=commandRun('CIRCexplorer2')
-    if status !=1:
-        print ("Error: CIRCexplorer2 is required")
-        sys.exit(-1)
-    #
-    ##### parameter variables ####
-    ### required values
-    gtf=''     ## gtf file 
-    outDir=''    ## output directory
-    readLength = 0 ## read length
-    readType = ''  ## read type, single or pair
-    threads = 1
-    genomeDir= ''
-    genomeFasta=''
-    #
-    ### input
-    s1='' ## sample_1 fastq name
-    s2='' ## sample_2 fastq name
-    s1CJ='' ## sample_1 chimeric junction file name
-    s2CJ='' ## sample_2 chimeric junction file name
-    s1SJ='' ## sample_1 splicing junction file name
-    s2SJ='' ## sample_1 splicing junction file name
-
-    ### with default values
-    Anchorlength=6 ## Chimeric anchor length
-    cutoff=0.01
-    keepTemp = 0 ## keep temp
-    ### checking out the argument names
-    validArgList=['-g','-s1','-s2','-STARindex','-s1CJ','-s2CJ','-s1SJ','-s2SJ','-read','-t','-gtf','-o','-len','-c','-keepTemp','-a','-h','--help']
-    for argIndex in range(1,len(sys.argv)): ## going through the all parameters 
-        if(sys.argv[argIndex][0]=='-' and sys.argv[argIndex] not in validArgList): ## incorrect argument
-            print('Not valid argument: %s' % sys.argv[argIndex])
-            print('Please provide valid arguments.')
-            print(helpInfo)
-            sys.exit()
-
-    for paramIndex in range(1,len(sys.argv)): ## going through the all parameters
-        if(sys.argv[paramIndex] == '-g'):  ## sample_1
-            paramIndex += 1  ## increase index
-            genomeFasta = sys.argv[paramIndex]
-        elif(sys.argv[paramIndex] == '-s1'):  ## sample_1
-            paramIndex += 1  ## increase index
-            s1 = sys.argv[paramIndex];    
-        elif (sys.argv[paramIndex] == '-s2'):  ## sample_2
-            paramIndex += 1  ## increase index
-            s2 = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-STARindex'):  ## STAR genome
-            paramIndex += 1  ## increase index
-            genomeDir = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-s1CJ'):  ## sample_1 chimeric junction
-            paramIndex += 1  ## increase index
-            s1CJ = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-s2CJ'):  ## sample_2 chimeric junction
-            paramIndex += 1  ## increase index
-            s2CJ = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-s1SJ'):  ## sample_1 splicing junction
-            paramIndex += 1  ## increase index
-            s1SJ = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-s2SJ'):  ## sample_2 splicing junction
-            paramIndex += 1  ## increase index
-            s2SJ = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-gtf'):  ## gtf file
-            paramIndex += 1  ## increase index
-            gtf = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-o'):  ## output folder
-            paramIndex += 1  ## increase index
-            outDir = sys.argv[paramIndex]
-        elif (sys.argv[paramIndex] == '-read'):  ## readtype, single or pair
-            paramIndex += 1  ## increase index
-            readType = sys.argv[paramIndex]
-            if readType not in ['single','pair']:
-                print('-read only accept "single" or "pair" value')
-                sys.exit(1)
-        elif (sys.argv[paramIndex] == '-t'):  ## threads for mapping
-            paramIndex += 1  ## increase index
-            threads = int(sys.argv[paramIndex])
-        elif (sys.argv[paramIndex] == '-len'):  ## read length
-            paramIndex += 1  ## increase index
-            readLength = int(sys.argv[paramIndex])
-        elif (sys.argv[paramIndex] == '-c'):  ##  c, deltaPBSI
-            paramIndex += 1  ## increase index
-            cutoff = float(sys.argv[paramIndex])
-        elif (sys.argv[paramIndex] == '-a'):  ## anchor length for chimeric junction and linear junction
-            paramIndex += 1  ## increase index
-            Anchorlength = int(sys.argv[paramIndex])
-        elif (sys.argv[paramIndex] == '-keepTemp'):  ## keep temp files, no value needed
-            keepTemp = 1  ## keep temp files
-        elif (sys.argv[paramIndex] == '-h' or sys.argv[paramIndex] == '--help'):  ## print helpInfo
-            print(helpInfo)
-            sys.exit()
-
-    ### checking out the required arguments
-
-    if (genomeFasta == '' or ((s1=='' or  s2=='' or genomeDir == '') and (s1CJ=='' or  s2CJ=='' or s1SJ=='' or  s2SJ=='')) or gtf==''  or outDir=='' or readLength==0 or readType==''): ### at least one required param is missing
-        print('Not enough arguments!!')
+### with default values
+Anchorlength=6 ## Chimeric anchor length
+cutoff=0.05
+nThreshold=-1
+groupPair=False
+keepTemp = 0 ## keep temp
+### checking out the argument names
+validArgList=['-g','-s1','-s2','-STARindex','-s1CJ','-s2CJ','-s1SJ','-s2SJ','-read','-t','-gtf','-o','-len','-c','-keepTemp','-a','-h','--help','-p','-n']
+for argIndex in range(1,len(sys.argv)): ## going through the all parameters 
+    if(sys.argv[argIndex][0]=='-' and sys.argv[argIndex] not in validArgList): ## incorrect argument
+        print('Not valid argument: %s' % sys.argv[argIndex])
+        print('Please provide valid arguments.')
         print(helpInfo)
         sys.exit()
 
-    CAlength=Anchorlength
-    LAlength=Anchorlength
-    genomeFasta=os.path.abspath(genomeFasta)
-    gtf=os.path.abspath(gtf)
-
-
-    ### process input parameters ####
-    SEPE = 'SE' ## single-end or pair
-    if readType=="pair": ## single-end
-      SEPE='PE'
-    ##### checking Fasta format ####
-    tempFasta_file=open(genomeFasta,'r')
-    for line in tempFasta_file:
-      if line.strip()[0]=='#': ## comments, skip this line
-        continue
-      if line.strip()[0]=='>':
-        break
-      else:
-        print ("Incorrect Fasta file format. Genome Fasta file must be clarified by >.")
+for paramIndex in range(1,len(sys.argv)): ## going through the all parameters
+    if(sys.argv[paramIndex] == '-g'):  ## sample_1
+        paramIndex += 1  ## increase index
+        genomeFasta = sys.argv[paramIndex]
+    elif(sys.argv[paramIndex] == '-s1'):  ## sample_1
+        paramIndex += 1  ## increase index
+        s1 = sys.argv[paramIndex];    
+    elif (sys.argv[paramIndex] == '-s2'):  ## sample_2
+        paramIndex += 1  ## increase index
+        s2 = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-STARindex'):  ## STAR genome
+        paramIndex += 1  ## increase index
+        genomeDir = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-s1CJ'):  ## sample_1 chimeric junction
+        paramIndex += 1  ## increase index
+        s1CJ = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-s2CJ'):  ## sample_2 chimeric junction
+        paramIndex += 1  ## increase index
+        s2CJ = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-s1SJ'):  ## sample_1 splicing junction
+        paramIndex += 1  ## increase index
+        s1SJ = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-s2SJ'):  ## sample_2 splicing junction
+        paramIndex += 1  ## increase index
+        s2SJ = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-gtf'):  ## gtf file
+        paramIndex += 1  ## increase index
+        gtf = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-o'):  ## output folder
+        paramIndex += 1  ## increase index
+        outDir = sys.argv[paramIndex]
+    elif (sys.argv[paramIndex] == '-read'):  ## readtype, single or pair
+        paramIndex += 1  ## increase index
+        readType = sys.argv[paramIndex]
+        if readType not in ['single','pair']:
+            print('-read only accept "single" or "pair" value')
+            sys.exit(1)
+    elif (sys.argv[paramIndex] == '-t'):  ## threads for mapping
+        paramIndex += 1  ## increase index
+        threads = int(sys.argv[paramIndex])
+    elif (sys.argv[paramIndex] == '-len'):  ## read length
+        paramIndex += 1  ## increase index
+        readLength = int(sys.argv[paramIndex])
+    elif (sys.argv[paramIndex] == '-c'):  ##  c, deltaPBSI
+        paramIndex += 1  ## increase index
+        cutoff = float(sys.argv[paramIndex])
+    elif (sys.argv[paramIndex] == '-a'):  ## anchor length for chimeric junction and linear junction
+        paramIndex += 1  ## increase index
+        Anchorlength = int(sys.argv[paramIndex])
+    elif (sys.argv[paramIndex] == '-n'):  ## anchor length for chimeric junction and linear junction
+        paramIndex += 1  ## increase index
+        nThreshold = int(sys.argv[paramIndex])
+    elif (sys.argv[paramIndex] == '-keepTemp'):  ## keep temp files, no value needed
+        keepTemp = 1  ## keep temp files
+    elif (sys.argv[paramIndex] == '-p'):  ## group is paired
+        groupPair = True
+    elif (sys.argv[paramIndex] == '-h' or sys.argv[paramIndex] == '--help'):  ## print helpInfo
+        print(helpInfo)
         sys.exit()
-    tempFasta_file.close()
 
-    ##### checking GTF format #####
-    #
-    tempGTF_file = open(gtf,'r') ## open gtf file
-    for line in tempGTF_file:
-      if line.strip()[0]=='#': ## comments, skip this line
-        continue
-      gtfEle = line.strip().split('\t')
-      if len(gtfEle)<9: ## may be incorrect gtf format
-        print("Incorrect GTF file format. GTF file must have 9 tab-delimited columns.")
-        sys.exit()
-      break  ## just check the first non-comment column
-    tempGTF_file.close()
+### checking out the required arguments
 
-    ####### checking readLength ##########
-    fastq=1
-    if s1=='' and  s2=='':
-        fastq=0
+if (genomeFasta == '' or ((s1=='' or  s2=='' or genomeDir == '') and (s1CJ=='' or  s2CJ=='' or s1SJ=='' or  s2SJ=='')) or gtf==''  or outDir=='' or readLength==0 or readType==''): ### at least one required param is missing
+    print('Not enough arguments!!')
+    print(helpInfo)
+    sys.exit()
 
-    def checkLineNum(file,Num):
-        fff=open(file)
-        a=fff.readline().strip().split('\t')
-        fff.close()
-        if len(a) == Num:
-            return 1
-        else:
-            return 0
-        
-        
-    if fastq==1: ## fastq file was provided
-        genomeDir=os.path.abspath(genomeDir)
-        tempSample_1=open(s1,'r')
-        tempSample_2=open(s2,'r')
-        sample_1=[i.strip() for i in tempSample_1.readlines()]
-        sample_2=[i.strip() for i in tempSample_2.readlines()]
-        for i in sample_1+sample_2:
-            tmp=i.split(';')
-            for j in tmp:
-                if not os.path.exists(j):
-                    print ("sample file: "+ j +" is not exist")
-                    sys.exit()
-    else: ## CJ and SJ files were provided
-        tempSample_1CJ=open(s1CJ,'r')
-        tempSample_2CJ=open(s2CJ,'r')
-        tempSample_1SJ=open(s1SJ,'r')
-        tempSample_2SJ=open(s2SJ,'r')
-        sample_1_CJ=[i.strip() for i in tempSample_1CJ.readlines()]
-        sample_2_CJ=[i.strip() for i in tempSample_2CJ.readlines()]
-        sample_1_SJ=[i.strip() for i in tempSample_1SJ.readlines()]
-        sample_2_SJ=[i.strip() for i in tempSample_2SJ.readlines()]
-        for i in sample_1_CJ+sample_2_CJ+sample_1_SJ+sample_2_SJ:
-            if not os.path.exists(i):
-                print("sample file: "+ i +" is not exist")
-                sys.exit()
-        sample_1=sample_1_CJ
-        sample_2=sample_2_CJ
-        for CJfile in sample_1_CJ[0:2]: ## examine each file
-            if checkLineNum(CJfile,14) == 0:
-                print("Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
-                sys.exit()
-                break
-        for CJfile in sample_2_CJ[0:2]: ## examine each file
-            if checkLineNum(CJfile,14) == 0:
-                print("Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
-                sys.exit()
-                break
-        for SJfile in sample_1_SJ[0:2]: ## examine each file
-            if checkLineNum(SJfile,9) == 0:
-                print("Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
-                sys.exit()
-                break
-        for SJfile in sample_2_SJ[0:2]: ## examine each file
-            if checkLineNum(SJfile,9) == 0:
-                print("Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
-                sys.exit()
-                break
-                
-    sampleNum=len(sample_1)+len(sample_2)
+if groupPair:
+    from .rMATs_paired import *
+else:
+    from .rMATs import *
 
-    os.system('mkdir -p '+ outDir)
-    oFile = open(outDir+'/commands.txt', 'a') ## file that will contain list of commands excuted here
+CAlength=Anchorlength
+LAlength=Anchorlength
+genomeFasta=os.path.abspath(genomeFasta)
+gtf=os.path.abspath(gtf)
 
-    ### setting up the logging format 
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(message)s',
-                        filename=outDir+'/DEBKS_main.log' ,
-                        filemode='w')
+### process input parameters ####
+SEPE = 'SE' ## single-end or pair
+if readType=="pair": ## single-end
+  SEPE='PE'
+##### checking Fasta format ####
+tempFasta_file=open(genomeFasta,'r')
+for line in tempFasta_file:
+  if line.strip()[0]=='#': ## comments, skip this line
+    continue
+  if line.strip()[0]=='>':
+    break
+  else:
+    print ("Incorrect Fasta file format. Genome Fasta file must be clarified by >.")
+    sys.exit()
+tempFasta_file.close()
 
-    ##### Getting Start Time ######
-    logging.debug('DEBKS version: %s' % DEBKS_ver)
-    logging.debug('Start the program with [%s]\n', listToString(sys.argv))
-    startTime = time.time()
+##### checking GTF format #####
+#
+if gtf[(len(gtf)-3):]=='.gz':
+    tempGTF_file = gzip.open(gtf,'rb') ## open gtf file
+else:
+    tempGTF_file = open(gtf,'r')
+    
+for line in tempGTF_file:
+  if gtf[(len(gtf)-3):]=='.gz':
+    line=line.decode()
+  if line.strip()[0]=='#': ## comments, skip this line
+    continue
+  gtfEle = line.strip().split('\t')
+  if len(gtfEle)<9: ## may be incorrect gtf format
+    print("Incorrect GTF file format. GTF file must have 9 tab-delimited columns.")
+    sys.exit()
+  break  ## just check the first non-comment column
+tempGTF_file.close()
 
-    scriptPath = os.path.abspath(os.path.dirname(__file__))  ## absolute script path
-    outPath = os.path.abspath(outDir) ## absolute output path
+####### checking readLength ##########
+fastq=1
+if s1=='' and  s2=='':
+    fastq=0
 
-    s1Path = outPath + '/SAMPLE_1'
-    os.system('mkdir -p '+ s1Path)
-    s2Path = outPath + '/SAMPLE_2'
-    os.system('mkdir -p '+ s2Path)
-
-    ## making folders for replicates ##
-    s1rPath = s1Path+'/REP_'
-    s2rPath = s2Path+'/REP_'
-    for rr in range(0,len(sample_1)): ## sample_1
-        os.system('mkdir -p '+ s1rPath+str(rr+1))
-    for rr in range(0,len(sample_2)): ## sample_2
-        os.system('mkdir -p '+ s2rPath+str(rr+1))
-
-    finalPath = outPath+'/DEBKS_output'
-    os.system('mkdir -p '+ finalPath)
-
-    tempPath = outPath + '/temp'
-    os.system('mkdir -p '+ tempPath)
-
-    ### putting keys in log file
-    #
-    logging.debug("################### folder names and associated input files #############")
-    for fki in range(0,len(sample_1)): ## for each replicate of sample_1
-        repTempFolder = "SAMPLE_1\REP_"+str(fki+1)
-        associatedFile = sample_1[fki]
-        logging.debug(repTempFolder+"\t"+associatedFile)
-
-    for fki in range(0,len(sample_2)): ## for each replicate of sample_2
-        repTempFolder = "SAMPLE_2\REP_"+str(fki+1)
-        associatedFile = sample_2[fki]
-        logging.debug(repTempFolder+"\t"+associatedFile)
-
-    logging.debug("#########################################################################\n")
-
-    #### ln -s chimeric and splicing junction files for no fastq ####
-    if fastq ==0:
-        logging.debug("################# ln -s chimeric junction files for no fastq #############")
-        for rr in range(0,len(sample_1)): ## for each replicate of sample_1
-            rTempFolder = s1rPath+str(rr+1)
-            if os.path.exists(rTempFolder+'/Chimeric.out.junction'):
-                continue
-            else:
-                cmd='ln -s '+os.path.abspath(sample_1_CJ[rr]) +' '+rTempFolder+'/Chimeric.out.junction'
-                status,output=commandRun(cmd)
-                oFile.write('######  ln -s chimeric junction files for sample_1, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
-                oFile.flush()
-                if (int(status)!=0): ## it did not go well
-                    logging.debug("error in ln -s chimeric junction files for sample_1, replicate_%d: %s" % ((rr+1),status))
-                    logging.debug("error detail: %s" % output)
-                    raise Exception()
-            if os.path.exists(rTempFolder+'/SJ.out.tab'):
-                continue
-            else:
-                cmd='ln -s '+os.path.abspath(sample_1_SJ[rr]) +' '+rTempFolder+'/SJ.out.tab'
-                status,output=commandRun(cmd)
-                oFile.write('######  ln -s splicing junction files for sample_1, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
-                oFile.flush()
-                if (int(status)!=0): ## it did not go well
-                    logging.debug("error in ln -s splicing junction files for sample_1, replicate_%d: %s" % ((rr+1),status))
-                    logging.debug("error detail: %s" % output)
-                    raise Exception()
-
-        for rr in range(0,len(sample_2)): ## for each replicate of sample_2
-            rTempFolder = s2rPath+str(rr+1)
-            if os.path.exists(rTempFolder+'/Chimeric.out.junction'):
-                continue
-            else:
-                cmd='ln -s '+os.path.abspath(sample_2_CJ[rr]) +' '+rTempFolder+'/Chimeric.out.junction'
-                status,output=commandRun(cmd)
-                oFile.write('######  ln -s chimeric junction files for sample_2, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
-                oFile.flush()
-                if (int(status)!=0): ## it did not go well
-                    logging.debug("error in ln -s chimeric junction files for sample_2, replicate_%d: %s" % ((rr+1),status))
-                    logging.debug("error detail: %s" % output)
-                    raise Exception()
-            if os.path.exists(rTempFolder+'/SJ.out.tab'):
-                continue
-            else:
-                cmd='ln -s '+os.path.abspath(sample_2_SJ[rr]) +' '+rTempFolder+'/SJ.out.tab'
-                status,output=commandRun(cmd)
-                oFile.write('######  ln -s splicing junction files for sample_2, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
-                oFile.flush()
-                if (int(status)!=0): ## it did not go well
-                    logging.debug("error in ln -s splicing junction files for sample_2, replicate_%d: %s" % ((rr+1),status))
-                    logging.debug("error detail: %s" % output)
-                    raise Exception()
-        logging.debug("#########################################################################\n")
+def checkLineNum(file,Num):
+    fff=open(file)
+    a=fff.readline().strip().split('\t')
+    fff.close()
+    if len(a) == Num:
+        return 1
     else:
-        pass
+        return 0
+    
+    
+if fastq==1: ## fastq file was provided
+    genomeDir=os.path.abspath(genomeDir)
+    tempSample_1=open(s1,'r')
+    tempSample_2=open(s2,'r')
+    sample_1=[i.strip() for i in tempSample_1.readlines()]
+    sample_2=[i.strip() for i in tempSample_2.readlines()]
+    for i in sample_1+sample_2:
+        tmp=i.split(';')
+        for j in tmp:
+            if not os.path.exists(j):
+                print ("sample file: "+ j +" is not exist")
+                sys.exit()
+else: ## CJ and SJ files were provided
+    tempSample_1CJ=open(s1CJ,'r')
+    tempSample_2CJ=open(s2CJ,'r')
+    tempSample_1SJ=open(s1SJ,'r')
+    tempSample_2SJ=open(s2SJ,'r')
+    sample_1_CJ=[i.strip() for i in tempSample_1CJ.readlines()]
+    sample_2_CJ=[i.strip() for i in tempSample_2CJ.readlines()]
+    sample_1_SJ=[i.strip() for i in tempSample_1SJ.readlines()]
+    sample_2_SJ=[i.strip() for i in tempSample_2SJ.readlines()]
+    for i in sample_1_CJ+sample_2_CJ+sample_1_SJ+sample_2_SJ:
+        if not os.path.exists(i):
+            print("sample file: "+ i +" is not exist")
+            sys.exit()
+    sample_1=sample_1_CJ
+    sample_2=sample_2_CJ
+    for CJfile in sample_1_CJ[0:2]: ## examine each file
+        if checkLineNum(CJfile,14) == 0:
+            print("Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
+            sys.exit()
+            break
+    for CJfile in sample_2_CJ[0:2]: ## examine each file
+        if checkLineNum(CJfile,14) == 0:
+            print("Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
+            sys.exit()
+            break
+    for SJfile in sample_1_SJ[0:2]: ## examine each file
+        if checkLineNum(SJfile,9) == 0:
+            print("Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
+            sys.exit()
+            break
+    for SJfile in sample_2_SJ[0:2]: ## examine each file
+        if checkLineNum(SJfile,9) == 0:
+            print("Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
+            sys.exit()
+            break
+            
+sampleNum=len(sample_1)+len(sample_2)
+if nThreshold==-1:
+    nThreshold=2*sampleNum
+os.system('mkdir -p '+ outDir)
+oFile = open(outDir+'/commands.txt', 'a') ## file that will contain list of commands excuted here
 
+### setting up the logging format 
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(message)s',
+                    filename=outDir+'/DEBKS_main.log' ,
+                    filemode='w')
 
+##### Getting Start Time ######
+logging.debug('DEBKS version: %s' % DEBKS_ver)
+logging.debug('Start the program with [%s]\n', listToString(sys.argv))
+startTime = time.time()
+
+scriptPath = os.path.abspath(os.path.dirname(__file__))  ## absolute script path
+outPath = os.path.abspath(outDir) ## absolute output path
+
+s1Path = outPath + '/SAMPLE_1'
+os.system('mkdir -p '+ s1Path)
+s2Path = outPath + '/SAMPLE_2'
+os.system('mkdir -p '+ s2Path)
+
+## making folders for replicates ##
+s1rPath = s1Path+'/REP_'
+s2rPath = s2Path+'/REP_'
+for rr in range(0,len(sample_1)): ## sample_1
+    os.system('mkdir -p '+ s1rPath+str(rr+1))
+for rr in range(0,len(sample_2)): ## sample_2
+    os.system('mkdir -p '+ s2rPath+str(rr+1))
+
+finalPath = outPath+'/DEBKS_output'
+os.system('mkdir -p '+ finalPath)
+
+tempPath = outPath + '/temp'
+os.system('mkdir -p '+ tempPath)
+
+### putting keys in log file
+#
+logging.debug("################### folder names and associated input files #############")
+for fki in range(0,len(sample_1)): ## for each replicate of sample_1
+    repTempFolder = "SAMPLE_1\REP_"+str(fki+1)
+    associatedFile = sample_1[fki]
+    logging.debug(repTempFolder+"\t"+associatedFile)
+
+for fki in range(0,len(sample_2)): ## for each replicate of sample_2
+    repTempFolder = "SAMPLE_2\REP_"+str(fki+1)
+    associatedFile = sample_2[fki]
+    logging.debug(repTempFolder+"\t"+associatedFile)
+
+logging.debug("#########################################################################\n")
+
+#### ln -s chimeric and splicing junction files for no fastq ####
+if fastq ==0:
+    logging.debug("################# ln -s chimeric junction files for no fastq #############")
+    for rr in range(0,len(sample_1)): ## for each replicate of sample_1
+        rTempFolder = s1rPath+str(rr+1)
+        if os.path.exists(rTempFolder+'/Chimeric.out.junction'):
+            continue
+        else:
+            cmd='ln -s '+os.path.abspath(sample_1_CJ[rr]) +' '+rTempFolder+'/Chimeric.out.junction'
+            status,output=commandRun(cmd)
+            oFile.write('######  ln -s chimeric junction files for sample_1, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
+            oFile.flush()
+            if (int(status)!=0): ## it did not go well
+                logging.debug("error in ln -s chimeric junction files for sample_1, replicate_%d: %s" % ((rr+1),status))
+                logging.debug("error detail: %s" % output)
+                raise Exception()
+        if os.path.exists(rTempFolder+'/SJ.out.tab'):
+            continue
+        else:
+            cmd='ln -s '+os.path.abspath(sample_1_SJ[rr]) +' '+rTempFolder+'/SJ.out.tab'
+            status,output=commandRun(cmd)
+            oFile.write('######  ln -s splicing junction files for sample_1, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
+            oFile.flush()
+            if (int(status)!=0): ## it did not go well
+                logging.debug("error in ln -s splicing junction files for sample_1, replicate_%d: %s" % ((rr+1),status))
+                logging.debug("error detail: %s" % output)
+                raise Exception()
+
+    for rr in range(0,len(sample_2)): ## for each replicate of sample_2
+        rTempFolder = s2rPath+str(rr+1)
+        if os.path.exists(rTempFolder+'/Chimeric.out.junction'):
+            continue
+        else:
+            cmd='ln -s '+os.path.abspath(sample_2_CJ[rr]) +' '+rTempFolder+'/Chimeric.out.junction'
+            status,output=commandRun(cmd)
+            oFile.write('######  ln -s chimeric junction files for sample_2, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
+            oFile.flush()
+            if (int(status)!=0): ## it did not go well
+                logging.debug("error in ln -s chimeric junction files for sample_2, replicate_%d: %s" % ((rr+1),status))
+                logging.debug("error detail: %s" % output)
+                raise Exception()
+        if os.path.exists(rTempFolder+'/SJ.out.tab'):
+            continue
+        else:
+            cmd='ln -s '+os.path.abspath(sample_2_SJ[rr]) +' '+rTempFolder+'/SJ.out.tab'
+            status,output=commandRun(cmd)
+            oFile.write('######  ln -s splicing junction files for sample_2, replicate_'+ str(rr+1)+'#####\n'+cmd+'\n#\n')
+            oFile.flush()
+            if (int(status)!=0): ## it did not go well
+                logging.debug("error in ln -s splicing junction files for sample_2, replicate_%d: %s" % ((rr+1),status))
+                logging.debug("error detail: %s" % output)
+                raise Exception()
+    logging.debug("#########################################################################\n")
+else:
+    pass
+
+def main():
     def doSTARMapping(): ## do STAR mapping
         logging.debug("mapping the sample1")
         for rr in range(0,len(sample_1)): ## for each replicate of sample_1
@@ -423,8 +447,8 @@ def main():
                     unLoadGenome()
                 if os.path.exists(rTempFolder+"/Aligned.out.bam"):
                     os.system("rm -rf "+rTempFolder+"/Aligned.out.bam")
-            cmd = 'STAR --genomeLoad LoadAndKeep --chimSegmentMin ' + str(CAlength) + ' --outFilterMismatchNmax 3  --runThreadN ' + str(threads) + ' --outSAMstrandField intronMotif --outSAMtype BAM Unsorted'
-            cmd += ' --alignSJDBoverhangMin ' + str(LAlength) +' --alignSJoverhangMin '+ str(LAlength) + ' --alignIntronMax 300000 --genomeDir '+genomeDir
+            cmd = 'STAR --genomeLoad LoadAndKeep --chimSegmentMin ' + str(CAlength) + ' --chimOutType WithinBAM  --runThreadN ' + str(threads) + '  --outSAMtype BAM Unsorted'
+            cmd += ' --alignSJDBoverhangMin ' + str(LAlength) +' --alignSJoverhangMin '+ str(LAlength) + '  --genomeDir '+genomeDir
             cmd += ' --chimJunctionOverhangMin '+ str(CAlength) +' --outSJfilterOverhangMin -1 '+ str(LAlength) +' -1 -1 --outFileNamePrefix ' + rTempFolder + '/ --readFilesIn '
             if SEPE=='PE': ## pair-end
                 cmd += sample_1[rr].split(';')[0]+' '+sample_1[rr].split(';')[1]
@@ -457,8 +481,8 @@ def main():
                     unLoadGenome()
                 if os.path.exists(rTempFolder+"/Aligned.out.bam"):
                     os.system("rm -rf "+rTempFolder+"/Aligned.out.bam")
-            cmd = 'STAR --genomeLoad LoadAndKeep --chimSegmentMin ' + str(CAlength) + '  --runThreadN ' + str(threads) + ' --outSAMstrandField intronMotif --outSAMtype BAM Unsorted'
-            cmd += ' --alignSJDBoverhangMin ' + str(LAlength) +' --alignSJoverhangMin '+ str(LAlength) + ' --alignIntronMax 300000 --genomeDir '+genomeDir
+            cmd = 'STAR --genomeLoad LoadAndKeep --chimSegmentMin ' + str(CAlength) + ' --chimOutType WithinBAM  --runThreadN ' + str(threads) + ' --outSAMtype BAM Unsorted'
+            cmd += ' --alignSJDBoverhangMin ' + str(LAlength) +' --alignSJoverhangMin '+ str(LAlength) + ' --genomeDir '+genomeDir
             cmd += ' --chimJunctionOverhangMin '+ str(CAlength) +' --outSJfilterOverhangMin -1 '+ str(LAlength) +' -1 -1 --outFileNamePrefix ' + rTempFolder + '/ --readFilesIn '
             if SEPE=='PE': ## pair-end
                 cmd += sample_2[rr].split(';')[0]+' '+sample_2[rr].split(';')[1]
@@ -479,13 +503,13 @@ def main():
                 logging.debug("error detail: %s" % output)
                 raise Exception()
             logging.debug(output)
-            unLoadGenome()
+        unLoadGenome()
         os.chdir(tempPath)
         
         return
     ##### end of doSTARMapping ####
     def unLoadGenome():
-        cmd='STAR --genomeLoad Remove  --genomeDir '+genomeDir
+        cmd='STAR --genomeLoad Remove --outFileNamePrefix '+tempPath+'/ --genomeDir '+genomeDir
         oFile.write('######  running STAR for remove load genome  #####\n'+cmd+'\n#\n')
         oFile.flush()
         status,output=commandRun(cmd)
@@ -640,7 +664,7 @@ def main():
     def getCircRNAdetail():
         logging.debug("Get circRNA detail")
         status,output=commandRun('sed -i \'s/circular_RNA\///g\' ' + tempPath+'/circularRNA_known.txt')
-        os.system('awk -F "\t" \'{if($4>='+str(2*(len(sample_1)+len(sample_2)))+'){print $0}}\' '+ tempPath+'/circularRNA_known.txt > '+tempPath+'/circularRNA_filter.txt')
+        os.system('awk -F "\t" \'{if($4>='+str(nThreshold)+'){print $0}}\' '+ tempPath+'/circularRNA_known.txt > '+tempPath+'/circularRNA_filter.txt')
         annoBS=pd.read_csv(tempPath+'/circularRNA_filter.txt',header=None,sep='\t')
         annoBS=annoBS.assign(exonLen=0)
         title=['chr','start','end','name','score','strand','thickStart','thickEnd','itemRgb','exonCount','exonSizes','exonOffsets','readNumber','circType','geneName','isoformName','index','flankIntron']
@@ -856,6 +880,20 @@ def main():
 
 
     ##### end of getannoTrans #####
+    ##### PBSI #############
+    def psi2PBSI(psi):
+        pbsi=[]
+        for i in psi:
+            eachPbsi=[]
+            eachPsi=i.split(',')
+            for j in eachPsi:
+                if j!='':
+                    eachPbsi.append(str(1-float(j)))
+                else:
+                    eachPbsi.append('')
+            pbsi.append(','.join(eachPbsi))
+        return(pbsi)
+    
     ######## end of functions ##############
 
     ####
@@ -958,23 +996,6 @@ def main():
             logging.debug("Stack: %s" % stack)
         sys.exit(-1)
     logging.debug("done combine linear splicing junction..")
-    '''
-    #### 7. Collapse back-splicing
-    ####
-    #
-
-    logging.debug('Collapse back-splicing junction')
-    try:
-        matCBJ,annoCBJ=collapseBJ()
-    except:
-        logging.debug("There is an exception in collapse back-splicing junction")
-        logging.debug("Exception: %s" % sys.exc_info()[0])
-        logging.debug("Detail: %s" % sys.exc_info()[1])
-        for stack in traceback.extract_tb(sys.exc_info()[2]):
-            logging.debug("Stack: %s" % stack)
-        sys.exit(-1)
-    logging.debug("done collapse back-splicing junction..")
-    '''
     ####
     #### 7. Get linear transcript detail
     #
@@ -1039,8 +1060,8 @@ def main():
 
     matStat.loc[:,'inc1']=matSBJ.iloc[:,0].map(str).tolist()
     matStat.loc[:,'inc2']=matSBJ.iloc[:,len(sample_1)].map(str).tolist()
-    matStat.loc[:,'bs1']=matBS.iloc[:,0].map(str).tolist()
-    matStat.loc[:,'bs2']=matBS.iloc[:,len(sample_1)].map(str).tolist()
+    matStat.loc[:,'bs1']=matBS.iloc[:,0].map(int).map(str).tolist()
+    matStat.loc[:,'bs2']=matBS.iloc[:,len(sample_1)].map(int).map(str).tolist()
 
     for i in range(1,len(sample_1)):
         tmp=matStat.loc[:,'inc1']+','+matSBJ.iloc[:,i].map(str)
@@ -1050,16 +1071,31 @@ def main():
         matStat.loc[:,'inc2']=tmp.tolist()
 
     for i in range(1,len(sample_1)):
-        tmp=matStat.loc[:,'bs1']+','+matBS.iloc[:,i].map(str)
+        tmp=matStat.loc[:,'bs1']+','+matBS.iloc[:,i].map(int).map(str)
         matStat.loc[:,'bs1']=tmp.tolist()
     for i in range(len(sample_1)+1,sampleNum):
-        tmp=matStat.loc[:,'bs2']+','+matBS.iloc[:,i].map(str)
+        tmp=matStat.loc[:,'bs2']+','+matBS.iloc[:,i].map(int).map(str)
         matStat.loc[:,'bs2']=tmp.tolist()
 
         
         
-
-      
+    def vec_remove_na_pair(inc1,skp1,inc2,skp2):
+        res_inc1=[];res_skp1=[];res_inc2=[];res_skp2=[];
+        for i in range(len(inc1)):
+            if ((float(inc1[i])+float(skp1[i]))>0) & ((float(inc2[i])+float(skp2[i]))>0):
+                res_inc1.append(inc1[i]);
+                res_skp1.append(skp1[i]);
+                res_inc2.append(inc2[i]);
+                res_skp2.append(skp2[i]);
+        return([res_inc1,res_skp1,res_inc2,res_skp2])
+    def vec_remove_na(inc,skp):
+        res_inc=[];res_skp=[];
+        for i in range(len(inc)):
+            if (float(inc[i])+float(skp[i]))>0:
+                res_inc.append(inc[i]);
+                res_skp.append(skp[i]);
+        return([res_inc,res_skp]);
+        
     list_n_original_diff=[];psi_list_1=[];psi_list_2=[]
     for i in range(matStat.iloc[:,0].size):
         inc1=matSBJ.iloc[i,0:len(sample_1)].tolist()
@@ -1069,18 +1105,38 @@ def main():
         effective_inclusion_length=int(matStat.iat[i,5])
         effective_skipping_length=int(matStat.iat[i,6])
         inc1=vec2float(inc1);skp1=vec2float(skp1);inc2=vec2float(inc2);skp2=vec2float(skp2)
-
-        if (vecprod(vecadd(inc1,skp1))==0) | (vecprod(vecadd(inc2,skp2))==0) | (effective_inclusion_length==0):
-            psi_list_1.append('')
-            psi_list_2.append('')
-            if effective_inclusion_length ==0:
-                effective_inclusion_length=readLength
-            list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,0,i])
+        if effective_inclusion_length <=0:
+            effective_inclusion_length=readLength
+        if groupPair:
+            temp=vec_remove_na_pair(inc1,skp1,inc2,skp2);inc1_nona=temp[0];skp1_nona=temp[1];inc2_nona=temp[2];skp2_nona=temp[3];
+            if (len(inc1_nona)==0) | (len(inc2_nona)==0):
+                psi_list_1.append('')
+                psi_list_2.append('')
+                list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,0,i]);
+            else:
+                psi_list_1.append(adjustPsi(inc1,skp1,effective_inclusion_length,effective_skipping_length))
+                psi_list_2.append(adjustPsi(inc2,skp2,effective_inclusion_length,effective_skipping_length))
+                inc1=inc1_nona;skp1=skp1_nona;inc2=inc2_nona;skp2=skp2_nona;
+                inc1=vecAddOne(inc1);skp1=vecAddOne(skp1);inc2=vecAddOne(inc2);skp2=vecAddOne(skp2);
+                #psi_avg_1=sum(array(inc1)/effective_inclusion_length/(array(inc1)/effective_inclusion_length+array(skp1)/effective_skipping_length))/len(inc1);
+                #psi_avg_2=sum(array(inc2)/effective_inclusion_length/(array(inc2)/effective_inclusion_length+array(skp2)/effective_skipping_length))/len(inc2);
+                if (len(inc1)==1) |(len(inc2)==1):
+                    list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,0,i]);
+                else:
+                    list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,1,i]);
         else:
-            psi_list_1.append(adjustPsi(inc1,skp1,effective_inclusion_length,effective_skipping_length))
-            psi_list_2.append(adjustPsi(inc2,skp2,effective_inclusion_length,effective_skipping_length))
-            inc1=vecAddOne(inc1);skp1=vecAddOne(skp1);inc2=vecAddOne(inc2);skp2=vecAddOne(skp2)
-            list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,1,i])
+            temp1=vec_remove_na(inc1,skp1);temp2=vec_remove_na(inc2,skp2);
+            inc1_nona=temp1[0];skp1_nona=temp1[1];inc2_nona=temp2[0];skp2_nona=temp2[1];
+            if (len(inc1_nona)==0) | (len(inc2_nona)==0) | (effective_inclusion_length==0):
+                psi_list_1.append('')
+                psi_list_2.append('')
+                list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,0,i])
+            else:
+                psi_list_1.append(adjustPsi(inc1,skp1,effective_inclusion_length,effective_skipping_length))
+                psi_list_2.append(adjustPsi(inc2,skp2,effective_inclusion_length,effective_skipping_length))
+                inc1=inc1_nona;skp1=skp1_nona;inc2=inc2_nona;skp2=skp2_nona;
+                inc1=vecAddOne(inc1);skp1=vecAddOne(skp1);inc2=vecAddOne(inc2);skp2=vecAddOne(skp2)
+                list_n_original_diff.append([inc1,inc2,skp1,skp2,effective_inclusion_length,effective_skipping_length,1,i])
     P=getrMATS_P(list_n_original_diff,cutoff,threads)
     logging.debug("done Statistic analysis..")
     logging.debug("Prepare DEBKS_results output..")
@@ -1096,8 +1152,8 @@ def main():
     matStat['flankIntron']=annoBS.loc[:,'flankIntron'].tolist()
     matStat['linearExonL']=annoTrans.iloc[:,0].tolist()
     matStat['linearExonR']=annoTrans.iloc[:,3].tolist()
-    matStat['PBSI1']=psi_list_1
-    matStat['PBSI2']=psi_list_2
+    matStat['PBSI1']=psi2PBSI(psi_list_1)
+    matStat['PBSI2']=psi2PBSI(psi_list_2)
     matStat['SJL1']=list1_L
     matStat['SJL2']=list2_L
     matStat['SJR1']=list1_R

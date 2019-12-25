@@ -1,11 +1,5 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-"""
-author: Zelin Liu
-email: zlliu@bjmu.edu.cn
-license: GPL3
-detail: Mutiple threads
-"""
 # import libraries
 import subprocess
 import re,os,warnings,math,scipy,itertools,logging,time,datetime,pysam,traceback
@@ -19,6 +13,7 @@ import numpy as np
 from numpy import *
 np.seterr(divide='ignore',invalid='ignore')
 rho=0.9
+np.random.seed(1231);
 ########## functions ############
 #binomial MLE optimization functions
 def logit(x):
@@ -569,8 +564,8 @@ def myFDR(p):
     return(res)
 
 def adjustPsi(inc,skp,effective_inclusion_length,effective_skipping_length):
-    if effective_inclusion_length == 0:
-        print ([inc,skp,effective_inclusion_length,effective_skipping_length])
+    #if effective_inclusion_length == 0:
+        #print ([inc,skp,effective_inclusion_length,effective_skipping_length])
     inc_adj=np.array(inc)/effective_inclusion_length
     skp_adj=np.array(skp)/effective_skipping_length
     return(','.join([str(i) for i in (inc_adj/(inc_adj+skp_adj)).tolist()]))

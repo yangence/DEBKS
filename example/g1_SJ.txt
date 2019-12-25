@@ -1,0 +1,3 @@
+simu/g1_rep1.SJ.out.tab
+simu/g1_rep2.SJ.out.tab
+simu/g1_rep3.SJ.out.tab

@@ -88,6 +88,7 @@ plotArrow=function(start,end,maxvalue,height,strand){
 {
 pdf(outFile,width = 10, height = (sampleNum+1)*2)
 par(mar=c(2,4,4,2),mfrow=c(sampleNum+1,1))
+maxValue_depth=max(matDepth)
 for(i in 1:sampleNum){
   if(i<=sampleNum1){
     col=rgb(230,15,15,maxColorValue = 255)
@@ -96,7 +97,7 @@ for(i in 1:sampleNum){
     col=rgb(15,15,230,maxColorValue = 255)
     title_sample='sample_2_rep_'%&%(i-sampleNum1)%&%' PBSI:'%&%' '%&%psi[i]
   }
-  plot(matDepth[,i],type='h',xaxt="n",bty='n',xaxs='i',col=col,ylab='RPkM',las=1,xlab='',main=title_sample)
+  plot(matDepth[,i],type='h',xaxt="n",bty='n',xaxs='i',col=col,ylab='RPkM',las=1,xlab='',main=title_sample,ylim=c(0,maxValue_depth))
     
   
   if(linearL == 0){
