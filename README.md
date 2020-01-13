@@ -147,7 +147,7 @@ DEBKS -g genomeFasta \
 
 ```bash
 DEBKS -g genomeFasta -s1CJ sample_1.CJ.txt -s2CJ sample_2.CJ.txt -s1SJ sample_1.SJ.txt \
-   -s2sJ sample_2.SJ.txt -gtf gencode.v19.annotation.gtf -o out_test  -t 40 -read pair -len 150 -c 0.1 -a 6
+   -s2SJ sample_2.SJ.txt -gtf gencode.v19.annotation.gtf -o out_test  -t 40 -read pair -len 150 -c 0.1 -a 6
 ```
 
 ### Required Parameters:
