@@ -185,7 +185,7 @@ Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1S
 
 	-t          <int>       Number of processors [1]
 
-	-c          <float>     Required PBSI difference cutoff between the two samples [0.01]
+	-c          <float>     Required PBSI difference cutoff between the two samples [0.05]
 
 	-a          <int>       Minimum overhang length for counting chimeric or splicing junctions [6]
 
