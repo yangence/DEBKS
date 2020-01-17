@@ -304,26 +304,25 @@ else: ## CJ and SJ files were provided
     sample_2=sample_2_CJ
     for CJfile in sample_1_CJ[0:2]: ## examine each file
         if checkLineNum(CJfile,14) == 0:
-            print("Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
+            print("Error: Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
             sys.exit()
-            break
     for CJfile in sample_2_CJ[0:2]: ## examine each file
         if checkLineNum(CJfile,14) == 0:
-            print("Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
+            print("Error: Incorrect CJ file format. chimeric junction file must have 14 tab-delimited columns.")
             sys.exit()
-            break
     for SJfile in sample_1_SJ[0:2]: ## examine each file
         if checkLineNum(SJfile,9) == 0:
-            print("Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
+            print("Error: Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
             sys.exit()
-            break
     for SJfile in sample_2_SJ[0:2]: ## examine each file
         if checkLineNum(SJfile,9) == 0:
-            print("Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
+            print("Error: Incorrect SJ file format. chimeric junction file must have 9 tab-delimited columns.")
             sys.exit()
-            break
             
 sampleNum=len(sample_1)+len(sample_2)
+if len(sample_1)==1 or len(sample_2)==1:
+    print('Error: Each group need at least two samples!')
+    sys.exit()
 if nThreshold==-1:
     nThreshold=2*sampleNum
 os.system('mkdir -p '+ outDir)
