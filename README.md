@@ -219,6 +219,7 @@ Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1S
 |effective_bs_length| length adjust for bs1 and bs2|
 |PBSI1| percent back-spliced in of sample 1|
 |PBSI2| percent back-spliced in of sample 2|
+|delta_PBSI| average of the difference between PBSI1 and PBSI2|
 |P| the significance of differential PBSI with user defined threshold|
 |FDR| Benjamini-Hochberg corrected FDR of the above P|
 
