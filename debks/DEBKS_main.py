@@ -875,11 +875,8 @@ def main():
                     annoTrans.iat[i,3]=isoExonE[isoExonS.index(baseR)]
         annoTrans.to_csv(tempPath+'/annoTrans.txt',index=False,sep='\t',header=False)
         return(annoTrans)
-
-
-
     ##### end of getannoTrans #####
-    ##### PBSI #############
+    ##### psi2PBSI #############
     def psi2PBSI(psi):
         pbsi=[]
         for i in psi:
@@ -892,6 +889,32 @@ def main():
                     eachPbsi.append('')
             pbsi.append(','.join(eachPbsi))
         return(pbsi)
+    ##### end of psi2PBSI #####
+    def getMean(x):
+        num=len(x)
+        xSum=0
+        for i in x:
+            if i == 'nan':
+                num=num-1
+                continue
+            try:
+                tmp=float(i)
+                xSum=xSum+tmp
+            except:
+                num=num-1
+        if num ==0:
+            return(0)
+        else:
+            return(xSum/num)
+
+    def get_delta(PBSI1,PBSI2):
+        delta_pbsi=[]
+        for i in range(len(PBSI1)):
+            eachPbsi1_mean=getMean(PBSI1[i].split(','))
+            eachPbsi2_mean=getMean(PBSI2[i].split(','))
+            delta_pbsi.append(eachPbsi1_mean-eachPbsi2_mean)
+        return(delta_pbsi)
+    ##### end of psi2PBSI #####
     
     ######## end of functions ##############
 
@@ -1153,6 +1176,7 @@ def main():
     matStat['linearExonR']=annoTrans.iloc[:,3].tolist()
     matStat['PBSI1']=psi2PBSI(psi_list_1)
     matStat['PBSI2']=psi2PBSI(psi_list_2)
+    matStat['delta_PBSI']=get_delta(matStat['PBSI1'].to_list(),matStat['PBSI2'].to_list())
     matStat['SJL1']=list1_L
     matStat['SJL2']=list2_L
     matStat['SJR1']=list1_R
@@ -1164,7 +1188,7 @@ def main():
     title=['chr','start','end','strand','exonCount','exonSizes',
     'exonOffsets','geneID','isoformID','flankIntron',
     'linearExonL','linearExonR','SJL1','SJL2','SJR1','SJR2','inc1','inc2','bs1','bs2',
-    'effective_inclusion_length','effective_bs_length','PBSI1','PBSI2','P','FDR']
+    'effective_inclusion_length','effective_bs_length','PBSI1','PBSI2','delta_PBSI','P','FDR']
     matStat=matStat.loc[:,title]
     matStat.to_csv(outPath+'/DEBKS_output/DEBKS_results.txt',index=False,sep='\t',header=True)
     logging.debug("done DEBKS_results output..")
