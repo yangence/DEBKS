@@ -16,5 +16,5 @@ make test1 GTF=$gtfFile REF=$genomeFa STARINDEX=$starIndex
 ### Test2: DEBKS with junction counts
 ```
 make mapping STARINDEX=$starIndex
-make test1 GTF=$gtfFile REF=$genomeFa
+make test2 GTF=$gtfFile REF=$genomeFa
 ```
