@@ -1,13 +1,20 @@
 import pandas as pd,random, numpy as np,math,sys,os
 np.random.seed(10)
-
+def readGTFfile(fileName):
+    if not os.path.exists(fileName):
+        sys.exit('ERROR: %s is not exist!!!' % fileName)
+    try:
+        gtfDf = pd.read_csv(fileName,sep='\t',header=None)
+        return(gtfDf)
+    except:
+        sys.exit('ERROR: make sure %s is sorted and tabix indexed!!!' % gtfFile)
 sigma=float(sys.argv[1])
 outFile=sys.argv[2]
 if outFile[-1]!='/':
     outFile=outFile+'/'
 #gtfFile='/media/data4/lzl/annotation/GENCODE/humanV19/gencode.v19.annotation.gene.gtf'
 gtfFile=sys.argv[3]
-gtfDf=pd.read_csv(gtfFile,sep='\t',header=None)
+gtfDf=readGTFfile(gtfFile)
 geneID=list(set(gtfDf.iloc[:,8].map(lambda x: x.split('; ')[0]).tolist()))
 
 #geneCovDf=pd.read_csv('/media/data4/lzl/DEBKS/script/outJunction_mouse.txt',sep='\t',names=['c1','c2','s1','s2'])

@@ -105,7 +105,7 @@ To compatiable with circRNA quantification, the minimum hangover length to detec
 ```bash
 Usage: DEBKS anno -c circ_pos -g gene_anno -m genome [-o output]
 
-Example: DEBKS  count -c merge_pos.txt -m hg19.fa -g gencode.v19.annotation.sort.gtf.gz
+Example: DEBKS  anno -c merge_pos.txt -m hg19.fa -g gencode.v19.annotation.sort.gtf.gz
 
 Options:
     -h --help                   Show help message.

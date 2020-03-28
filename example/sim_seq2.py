@@ -15,7 +15,7 @@ def readGTFfile(fileName):
         tabixfile = pysam.TabixFile(fileName)
         return(tabixfile)
     except:
-        sys.exit('ERROR: make sure %s is sorted and tabix indexed!!!' % gtfFile)
+        sys.exit('ERROR: make sure %s is sorted and tabix indexed!!!' % fileName)
 
 #gtfFile='/media/data4/lzl/annotation/GENCODE/humanV19/gencode.v19.annotation.sort.gtf.gz'
 #faFile='/media/data4/lzl/genome/hg19/hg19.fa'
@@ -116,7 +116,7 @@ def simulate_linear(cov,readLen,seq,errRate,fragmentLen_o,out1,out2,id):
             read2=seq[startLoci:(startLoci+readLen)].upper()
         if eachReaderr_dict.__contains__(i):
             read1,read2=getErr(read1,read2,eachReaderr_dict[i])
-        readName='@'+id+'000'+str(i)
+        readName='@'+id+':'+str(i)
         out1.write(bytes("%s\n%s\n+\n%s\n" %(readName+'/1'+' length='+str(readLen), read1,quality),encoding='ASCII'))
         out2.write(bytes("%s\n%s\n+\n%s\n" %(readName+'/2'+' length='+str(readLen), read2,quality),encoding='ASCII'))
 
