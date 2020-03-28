@@ -54,7 +54,7 @@ Command:
     count            Count linear junction with BAM file
     anno             Annotate circRNA with gene annotation
     dec              Detect differentially expressed circRNA with junction information
-'''
+```
 
 
 ### Merge

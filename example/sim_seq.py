@@ -17,8 +17,10 @@ def readGTFfile(fileName):
     except:
         sys.exit('ERROR: make sure %s is sorted and tabix indexed!!!' % gtfFile)
 
-gtfFile='/media/data4/lzl/annotation/GENCODE/humanV19/gencode.v19.annotation.sort.gtf.gz'
-faFile='/media/data4/lzl/genome/hg19/hg19.fa'
+#gtfFile='/media/data4/lzl/annotation/GENCODE/humanV19/gencode.v19.annotation.sort.gtf.gz'
+#faFile='/media/data4/lzl/genome/hg19/hg19.fa'
+gtfFile=sys.argv[3]
+faFile=sys.argv[4]
 readLen=150
 errRate=0.0001
 fragmentLen=350

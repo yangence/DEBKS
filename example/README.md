@@ -22,10 +22,10 @@ tabix gencode.v19.annotation.sort.gtf.gz
 ```bash
 # RNA-seq dataset1
 mkdir dataset1
-python sim_circ.py genome.fa 0.01 dataset1 gencode.v19.annotation.sort.gtf.gz outJunction_mouse.txt
+python sim_circ.py 0.01 dataset1 gencode.v19.annotation.sort.gtf.gz outJunction_mouse.txt
 # RNA-seq dataset2
 mkdir dataset2
-python sim_circ2.py genome.fa 0.01 dataset2 gencode.v19.annotation.sort.gtf.gz outJunction_mouse.txt
+python sim_circ2.py 0.01 dataset2 gencode.v19.annotation.sort.gtf.gz outJunction_mouse.txt
 
 ```
 
@@ -34,10 +34,10 @@ python sim_circ2.py genome.fa 0.01 dataset2 gencode.v19.annotation.sort.gtf.gz o
 ```bash
 # RNA-seq dataset1
 cd dataset1
-for i in {1,2};do for j in {1,2,3};do python sim_seq.py coverage_0.01_g${i}_rep${j}.txt g${i}_rep${j} ;done;done
+for i in {1,2};do for j in {1,2,3};do python sim_seq.py coverage_0.01_g${i}_rep${j}.txt g${i}_rep${j} gencode.v19.annotation.sort.gtf.gz hg19.fa;done;done
 # RNA-seq dataset2
 cd dataset2
-for i in {1,2};do for j in {1,2,3};do python sim_seq.py coverage_0.01_g${i}_rep${j}.txt g${i}_rep${j} ;done;done
+for i in {1,2};do for j in {1,2,3};do python sim_seq.py coverage_0.01_g${i}_rep${j}.txt g${i}_rep${j} gencode.v19.annotation.sort.gtf.gz hg19.fa;done;done
 ```
 
 5) Detect circRNA
