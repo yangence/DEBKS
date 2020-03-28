@@ -1,6 +1,6 @@
 package:
   name: debks
-  version: "1.0.0"
+  version: "1.0.1"
 
 source:
   path: ./debks
@@ -17,9 +17,8 @@ requirements:
     - scipy>=1.2.1
     - pysam>=0.15.2
     - pandas>=0.24.2
-    - circexplorer2>=2.3.6
-    - star>=2.5.1
-    - numpy
+    - numpy>=1.16.6
+    - docopt>=0.6.2
 
 about:
   home: https://github.com/yangence/DEBKS

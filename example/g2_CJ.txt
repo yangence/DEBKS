@@ -1,3 +1,0 @@
-simu/g2_rep1.Chimeric.out.junction
-simu/g2_rep2.Chimeric.out.junction
-simu/g2_rep3.Chimeric.out.junction

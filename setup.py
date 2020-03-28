@@ -18,7 +18,8 @@ setup(name='DEBKS',
           'scipy>=1.2.1',
           'pysam>=0.15.2',
           'pandas>=0.24.2',
-          'CIRCexplorer2>=2.3.6'
+          'numpy>=1.16.6',
+          'docopt>=0.6.2'
       ],
       entry_points={
           'console_scripts': [

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DEBKS is a convenient and user-friendly program to streamline the discovery of differentially expressed circRNA between two RNA-seq sample groups with replicates. DEBKS combines well-known software *CIRCexplorer2*  for circRNA detection and annotation in chimeric RNA-seq reads, with rMATS statistical model for identifying differential isoform ratios using RNA-seq sequence count data with replicates.
+DEBKS is a convenient and user-friendly program to streamline the discovery of differentially expressed circRNA (DEC) between two RNA-seq sample groups with replicates. DEBKS includes four modules: (1) "merge" collects circRNA junction information from output file of circRNA detection software. (2) "anno" annotates circRNA based on the circRNA position. (3) "count" calcuates linear junction based on the circRNA position. (4) "dec" identifies DEC with rMATS statistical model.
 
 ## Availability
 
@@ -10,15 +10,7 @@ DEBKS is a free software, which can be downloaded from https://github.com/yangen
 
 ## Prequired Softwares and Packages
 
-1. Python 3.x.x and corresponding versions of NumPy, Pandas, and SciPy.
-
-2. [STAR 2.6.1](https://github.com/alexdobin/STAR)
-
-3. [gtfToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred)
-
-4. [SAMtools 1.9](https://github.com/samtools/samtools/releases/tag/1.9) 
-
-5. [CIRCexplorer2](https://circexplorer2.readthedocs.io/en/latest/tutorial/setup/#installation-and-setup)
+Python 3.x.x and corresponding versions of Pysam, NumPy, Pandas, and SciPy.
 
 ## Installation
 
@@ -39,193 +31,138 @@ python setup.py install
 
 Users can prepare the external files under the following instructions:
 
-1) Genome fasta file
+1) Indexed genome fasta file
 
-2) Gene annotation GTF file
+```bash
+samtools faidx $genome
+```
+
+2) Tabix indexed gene annotation GTF file
+
+```bash
+grep -v '#' $gtf |sort -k 1,1 -k 4,4n |bgzip >sort.gtf.gz
+tabix sort.gtf.gz
+```
 
 ## Usage
 
-### Raw Fastq File Provided
+```bash
+Usage: DEBKS (merge | count | anno | dec) [options]
 
-If raw fastq file provided, DEBKS can map reads and calcuate differential PBSI in the following command:
+Command:
+    merge            Merge circRNA junction from other software
+    count            Count linear junction with BAM file
+    anno             Annotate circRNA with gene annotation
+    dec              Detect differentially expressed circRNA with junction information
+'''
+
+
+### Merge
 
 ```bash
-DEBKS -g genomeFasta -s1 s1File -s2 s2File  \
-    -STARindex STARIndexDir -gtf gtfFile -o outDir \
-    -read readType -len readLength [options]*
+Usage: DEBKS  merge (-s software | -d designate) (-n name | -f file)  [-b pos_based]  [-o output]
+
+Example: DEBKS  merge -s CIRI2 -n s1.ciri,s2.ciri,s3.ciri
+
+Options:
+    -h --help                   Show help message.
+    -v --version                Show version.
+    -s software                 Name of software used to detect circRNA (e.g. ciri2, circexplorer2, find_circ).
+    -d designate                Designate the column postion of chr,start,end,circ,linear in the tab format output file of detection software (e.g. 1,2,3,4,5).
+                                The first four postion is required.
+    -b pos_based                0- or 1-based position for designated start and end position, separated by comma [default: 1,1].
+    -n name                     Names of output file of detection software, separated by comma (e.g. s1,s2,s3).
+    -f file                     File includes names of output file of detection software, separated by line breaks.
+    -o output                   Output prefix [default: merge].
 ```
 
-#### Required Files:
-
-1) s1File contains sample_1 fastq files:
-
-```
-  ${FILEPATH}/sample_1.Rep1.R1.fastq.gz;${FILEPATH}/sample_1.Rep1.R2.fastq.gz
-  ${FILEPATH}/sample_1.Rep2.R1.fastq.gz;${FILEPATH}/sample_1.Rep2.R2.fastq.gz
-  ${FILEPATH}/sample_1.Rep3.R1.fastq.gz;${FILEPATH}/sample_1.Rep3.R2.fastq.gz
-```
-
-2) s2File contains sample_2 fastq files:
-
-```
-  ${FILEPATH}/sample_2.Rep1.R1.fastq.gz;${FILEPATH}/sample_2.Rep1.R2.fastq.gz
-  ${FILEPATH}/sample_2.Rep2.R1.fastq.gz;${FILEPATH}/sample_2.Rep2.R2.fastq.gz
-  ${FILEPATH}/sample_2.Rep3.R1.fastq.gz;${FILEPATH}/sample_2.Rep3.R2.fastq.gz
-```
-
-3) Genome index built by STAR
+"merge" can automatically collect circular and linear junction counts from output files of well-known circRNA detection software or user designated positions.
+Note: "merge" adjust start and end position to 1-based.
+### Count
 
 ```bash
-STAR --runMode genomeGenerate --runThreadN threads \
-  --genomeFastaFiles genomeFasta \
-  --sjdbGTFfile gtfFile \
-  --sjdbOverhang readLength-1 \
-  --genomeDir STARIndexDir
+Usage: DEBKS count -c circ_pos (-n name | -f file) [-l library_type] [-t threads]  [-a hangover_len]  [-o output]
+
+Example: DEBKS  count -c merge_pos.txt -n s1.sort.bam,s2.sort.bam,s3.sort.bam
+
+Options:
+    -h --help                   Show help message.
+    -v --version                Show version.
+    -c circ_pos                 File of circRNA position in tab format (the first three columns are chr, start, end).
+    -n name                     Names of sorted bam file, separated by comma (e.g. bam1,bam2,bam3).
+    -f file                     File includes names of sorted bam file, separated by line breaks.
+    -l library_type             0 represent unstrandard, 1 represent fr-firststrand (e.g., dUTP protocol), 2 represent fr-secondstrand [default: 0].
+    -t threads                  Number of threads to detect DE circRNA [default: 4].
+    -a hangover_len             The minimum hangover length for junction quantification [default: 6].
+    -o output                   Output prefix [default: linear].
 ```
 
-#### Example
+"count" calcuate the linear junction counts with indexed sorted aligment bam file produced by RNA-seq aligners, e.g., STAR, HISAT2, and Tophat2.
+To compatiable with circRNA quantification, the minimum hangover length to detect circRNA can be inputed as the threshold for linear junction quantification with option '-a'.
+
+### Annotation
 
 ```bash
-DEBKS -g hg19.fa -s1 sample_1.txt -s2 sample_2.txt -STARindex hg19_STAR/ \
-    -gtf gencode.v19.annotation.gtf -o out_test -t 40 -read pair -len 150 -c 0.1 -a 6
+Usage: DEBKS anno -c circ_pos -g gene_anno -m genome [-o output]
+
+Example: DEBKS  count -c merge_pos.txt -m hg19.fa -g gencode.v19.annotation.sort.gtf.gz
+
+Options:
+    -h --help                   Show help message.
+    -v --version                Show version.
+    -c circ_pos                 File of circRNA position in tab format (the first three columns are chr, start, end).
+    -g gene_anno                Tabix indexed gtf File of gene annotation.
+    -m genome                   Fasta file of genome.
+    -o output                   Output prefix [default: circ].
 ```
 
-### STAR Alignment Results Provided
+"anno" annotates circRNAs with circRNA position and predicts the potential circRNA length based on gene annotation file.
 
-In this mode, users can map RNA-seq reads by themself with the following command:
+### DEC
 
 ```bash
-STAR --genomeDir STARIndexDir --chimSegmentMin anchorLength \
-    --runThreadN threads --outSAMtype BAM Unsorted --alignSJDBoverhangMin anchorLength \
-    --alignSJoverhangMin anchorLength	--chimJunctionOverhangMin anchorLength \
-    --outSJfilterOverhangMin -1 anchorLength -1 -1
+Usage: DEBKS dec -c circ (-l linear |--c2 circ2) [-p] [-n sample_num] [-f filter] [-t threads] [-d cutoff] [-r read_len] [-a hangover_len] [-e circ_len] [--e2 circ2_len] [-o output]
+
+Example: DEBKS  count -c merge_circ.txt -l merge_linear.txt -n 3,3 -f 12 -t 20 -e anno_len.txt
+
+Options:
+    -h --help                   Show help message.
+    -v --version                Show version.
+    -c circ                     Circular junction counts file in tab format, the first three columns is circRNA position (chr,start,end).
+    -l linear                   Linear junction counts file, the format is same with -c.
+    --c2 circ2                  Circular junction counts file in tab format, the format is same with -c.
+    -p                          Sample group is paired.
+    -n sample_num               Number of samples in each group, separated by comma (e.g. 2,3).
+    -f filter                   Required total circular juction counts in all samples to filter out low expressed circRNAs [default: 0].
+    -t threads                  Number of threads to detect DE circRNA [default: 4].
+    -d cutoff                   Cutoff of DE circRNA in two groups [default: 0.05].
+    -r read_len                 Length of RNA-seq reads [default: 150].
+    -a hangover_len             The minimum hangover length for junction quantification [default: 6].
+    -e circ_len                 File of circRNA length in tab format. The first four columns is circRNA position (chr, start, end) and circRNA length.
+    --e2 circ2_len              File of circRNA2 length in tab format, only work with --c2. The format is same with -e.
+    -o output                   Output file [default: dec_circRNA.txt].
 ```
 
-Then, users can employ DEBKS to calcuate differential PBSI in the following command:
-
-```bash
-DEBKS -g genomeFasta \
-    -s1CJ s1CJFile -s2CJ s2CJFile -s1SJ s1SJFile -s2SJ s2SJFile \
-    -gtf gtfFile -o outDir -read readType -len readLength [options]*
-```
-
-#### Required Files:
-
-1) File contains sample_1 chimeric junction files from STAR output:
-
-```
-  ${FILEPATH}/sample_1.Rep1.Chimeric.out.junction
-  ${FILEPATH}/sample_1.Rep2.Chimeric.out.junction
-  ${FILEPATH}/sample_1.Rep3.Chimeric.out.junction
-```
-
-2) File contains sample_2 chimeric junction files from STAR output:
-
-```
-  ${FILEPATH}/sample_2.Rep1.Chimeric.out.junction
-  ${FILEPATH}/sample_2.Rep2.Chimeric.out.junction
-  ${FILEPATH}/sample_2.Rep3.Chimeric.out.junction
-``` 
-
-3) File contains sample_1 splicing junction files from STAR output:
-
-```
-  ${FILEPATH}/sample_1.Rep1.SJ.out.tab
-  ${FILEPATH}/sample_1.Rep2.SJ.out.tab
-  ${FILEPATH}/sample_1.Rep3.SJ.out.tab
-```
-
-4) File contains sample_2 splicing junction files from STAR output:
-
-```
-  ${FILEPATH}/sample_2.Rep1.SJ.out.tab
-  ${FILEPATH}/sample_2.Rep2.SJ.out.tab
-  ${FILEPATH}/sample_2.Rep3.SJ.out.tab
-```
-
-#### Example
-
-```bash
-DEBKS -g genomeFasta -s1CJ sample_1.CJ.txt -s2CJ sample_2.CJ.txt -s1SJ sample_1.SJ.txt \
-   -s2SJ sample_2.SJ.txt -gtf gencode.v19.annotation.gtf -o out_test  -t 40 -read pair -len 150 -c 0.1 -a 6
-```
-
-### Required Parameters:
-	-g          <str>       Genome Fasta file
-
-	-STARindex  <str>       STAR alignment index directory
-	
-	-s1         <str>       FASTQ files of sample 1, replicates in different lines, paired files are separated by semicolon
-	
-	-s2         <str>       FASTQ files of sample 2, replicates in different lines, paired files are separated by semicolon
-
-	-s1CJ       <str>       Chimeric junction of sample 1 group, replicates in different lines
-
-	-s2CJ       <str>       Chimeric junction of sample 2 group, replicates in different lines
-
-	-s1SJ       <str>       Spliced junction of sample 1 group, replicates in different lines
-
-	-s2SJ       <str>       Spliced junction of sample 2 group, replicates in different lines
-
-	-gtf        <str>       GTF file
-
-	-o          <str>       Output directory of the result files
-
-	-read       <str>       RNA-seq reads are single- or pair-end reads. [single, pair]
-
-	-len        <int>       Read length of RNA-seq reads
-
-Note: parameters -STARindex -s1 -s2 are mutually exclusive with -s1CJ -s2CJ -s1SJ -s2SJ
-### Optional Parameters:
-	-h, --help              Show this help message and exit
-
-	-p                      Sample 1 group and sample 2 group is paired
-
-	-n          <int>       Required total juction reads in all samples to filter out low expressed circRNAs [2*samples]
-
-	-t          <int>       Number of processors [1]
-
-	-c          <float>     Required PBSI difference cutoff between the two samples [0.05]
-
-	-a          <int>       Minimum overhang length for counting chimeric or splicing junctions [6]
-
-	-keepTemp               Keep the temporary files. Disable by default.
-
-### DEBKS Results Summary
-
+"dec" detects DEC with circular and linear junction file which can be collected from upstream analysis. It also can detect DEC in alternative splicing level of circRNA. Options '--c2' supports input of circular junction file with same coordinate position in '-c' but different counts.
+Option '-e' and '--e2' accepts circRNA length to adjust the calucation of junction ratio. Users can peform 'anno' command or perform circRNA full length analysis software, e.g., CIRI-full and circAST to get the potential length.
+Note: Option '--c2' and '-l' is mutually exclusive.
+#### Output files
 |Field|Description|
 |:------:|:------|
 |chr| chromosome of circRNA|
-|start| coordinate of start back-splicied site (0-based)|
-|end| coordinate of end back-splicied site (1-based)|
-|strand| '+' or '-'|
-|exonCount| exon number of circRNA with comma-delimiter|
-|exonSizes| length for each exon with comma-delimiter|
-|exonOffsets| offset for each exon with comma-delimiter|
-|geneID| ID of gene|
-|isoformID| ID of isoform|
-|flankIntron| flanking intron of back-spliced sites|
-|linearExonL| coordinate of start site for left flanking exon|
-|linearExonR| coordinate of end site for right flanking exon|
-|SJL1| counts of spliced junction of left flanking in sample 1 group with comma-delimiter|
-|SJL1| counts of spliced junction of left flanking in sample 2 group with comma-delimiter|
-|SJR1| counts of spliced junction of right flanking in sample 1 group with comma-delimiter|
-|SJR1| counts of spliced junction of right flanking in sample 2 group with comma-delimiter|
-|inc1| counts of inclusion spliced junction of sample 1 group with comma-delimiter, equal to sum of SJL1 and SJR1|
-|inc2| counts of inclusion spliced junction of sample 2 group with comma-delimiter, equal to sum of SJL2 and SJR2|
-|bs1| counts of back-spliced junction in sample 1 group|
-|bs2| counts of back-spliced junction in sample 2 group|
-|effective_inclusion_length| length adjust for inc1 and inc2|
-|effective_bs_length| length adjust for bs1 and bs2|
-|PBSI1| percent back-spliced in of sample 1|
-|PBSI2| percent back-spliced in of sample 2|
-|delta_PBSI| average of the difference between PBSI1 and PBSI2|
-|P| the significance of differential PBSI with user defined threshold|
+|start| coordinate of start back-splicied site|
+|end| coordinate of end back-splicied site|
+|cjc_1| counts of circular junction of group1|
+|cjc_2| counts of circular junction of group1|
+|ljc_1 or cjc2_1| counts of linear or circular2 junction of group1|
+|ljc_2 or cjc2_2| counts of linear or circular2 junction of group2|
+|adj_cjc_len| length adjust for cjc|
+|adj_ljc_len| length adjust for ljc|
+|pbsi1| circular junction ratio of group1|
+|pbsi2| circular junction ratio of group2|
+|delta_pbsi| average of the difference between pbsi1 and pbsi2|
+|P| the significance of delta_pbsi with user defined threshold|
 |FDR| Benjamini-Hochberg corrected FDR of the above P|
-
-## Citation
-
-
 
 ## Copyright and License Information
 

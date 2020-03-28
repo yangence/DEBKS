@@ -1,3 +1,0 @@
-simu/g2_rep1.SJ.out.tab
-simu/g2_rep2.SJ.out.tab
-simu/g2_rep3.SJ.out.tab

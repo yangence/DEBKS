@@ -1,3 +1,0 @@
-./simu/g1_rep1_1.fq;./simu/g1_rep1_2.fq
-./simu/g1_rep2_1.fq;./simu/g1_rep2_2.fq
-./simu/g1_rep3_1.fq;./simu/g1_rep3_2.fq
