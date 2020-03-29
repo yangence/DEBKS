@@ -275,12 +275,12 @@ def stat(circMat,linearMat,group1_num,sampleNum,adjust_inc_len,adjust_skp_len,cu
         matStat=pd.DataFrame({'chr':circMat.iloc[:,0],'start':circMat.iloc[:,1],'end':circMat.iloc[:,2],
         'cjc_1':cjc1.tolist(),'cjc_2':cjc2.tolist(),'cjc2_1':ljc1.tolist(),
         'cjc2_2':ljc2.tolist(),'adj_cjc_len':adjust_skp_len,'adj_cjc2_len':adjust_inc_len,
-        'pbsi1':pbsi1,'pbsi2':pbsi2,'delt_pbsi':deltPBSI,'P':P,'FDR':FDR})
+        'pbsi1':pbsi1,'pbsi2':pbsi2,'delta_pbsi':deltPBSI,'P':P,'FDR':FDR})
         matStat.to_csv(output,index=False,sep='\t',header=True)
     else:
         matStat=pd.DataFrame({'chr':circMat.iloc[:,0],'start':circMat.iloc[:,1],'end':circMat.iloc[:,2],
         'cjc_1':cjc1.tolist(),'cjc_2':cjc2.tolist(),'ljc_1':ljc1.tolist(),
         'ljc_2':ljc2.tolist(),'adj_cjc_len':adjust_skp_len,'adj_ljc_len':adjust_inc_len,
-        'pbsi1':pbsi1,'pbsi2':pbsi2,'delt_pbsi':deltPBSI,'P':P,'FDR':FDR})
+        'pbsi1':pbsi1,'pbsi2':pbsi2,'delta_pbsi':deltPBSI,'P':P,'FDR':FDR})
         matStat.to_csv(output,index=False,sep='\t',header=True)
     return(sum(np.array(FDR)<0.05))
