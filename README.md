@@ -16,7 +16,7 @@ Python 3.x.x and corresponding versions of Pysam, NumPy, Pandas, and SciPy.
 
 Install latest release via conda
 ```
-conda install -c colinliuzelin DEBKS
+conda install -c colinliuzelin DEBKS -c bioconda
 ```
 
 Install latest release from source codes
