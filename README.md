@@ -123,7 +123,7 @@ Options:
 ```bash
 Usage: DEBKS dec -c circ (-l linear |--c2 circ2) [-p] [-n sample_num] [-f filter] [-t threads] [-d cutoff] [-r read_len] [-a hangover_len] [-e circ_len] [--e2 circ2_len] [-o output]
 
-Example: DEBKS  count -c merge_circ.txt -l merge_linear.txt -n 3,3 -f 12 -t 20 -e anno_len.txt
+Example: DEBKS  dec -c merge_circ.txt -l merge_linear.txt -n 3,3 -f 12 -t 20 -e anno_len.txt
 
 Options:
     -h --help                   Show help message.
