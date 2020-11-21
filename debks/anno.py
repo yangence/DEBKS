@@ -90,6 +90,8 @@ def getGene(chr,start,end,gtfFile):
     geneName_list=[]
     geneID_Dict={}
     geneStrand_list=[]
+    if chr not in gtfFile.contigs:
+        return(['intergenic'])
     for gtf in gtfFile.fetch(chr, start, end+1,parser=pysam.asGTF()):
         if gtf.feature=='gene':
             geneID_list.append(gtf.gene_id)
