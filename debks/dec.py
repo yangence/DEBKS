@@ -212,7 +212,14 @@ def vec_remove_low(inc,skp,num):
             res_skp.append(skp[i]);
     return([res_inc,res_skp]);
 
-
+def checkInf(x):
+    xt=[]
+    for i in x:
+        if i==float('inf') or i==float('-inf'):
+            xt.append(float('nan'))
+        else:
+            xt.append(i)
+    return(xt)
 def stat(circMat,linearMat,group1_num,sampleNum,adjust_inc_len,adjust_skp_len,cutoff,groupPair,threads,output,isc2,filterSample):
     list_n_original_diff=[];psi_list_1=[];psi_list_2=[]
     for i in range(circMat.shape[0]):
@@ -223,6 +230,7 @@ def stat(circMat,linearMat,group1_num,sampleNum,adjust_inc_len,adjust_skp_len,cu
         effective_inclusion_length=adjust_inc_len[i]
         effective_skipping_length=adjust_skp_len[i]
         inc1=vec2float(inc1);skp1=vec2float(skp1);inc2=vec2float(inc2);skp2=vec2float(skp2)
+        inc1=checkInf(inc1);skp1=checkInf(skp1);inc2=checkInf(inc2);skp2=checkInf(skp2)
         if effective_inclusion_length <=0:
             effective_inclusion_length=readLength
         if groupPair:
