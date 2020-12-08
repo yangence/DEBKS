@@ -255,7 +255,7 @@ def adjGene(chr,start,end,gtfFile,strand):
     anno=getGene(chr,start,end,gtfFile)
     #type; strand; geneID; geneName; subType; start; end; len
     if anno[0]=='intergenic':
-        return('intergenic',strand,'','','intergenic',start+1,end,end-start)
+        return('intergenic',strand,'.','.','intergenic',start+1,end,end-start)
     elif anno[0]=='intronic':# type == intronic or intergenic; subType: antisense
         strand_list=anno[3]
         if strand in ['+','-']:
@@ -310,7 +310,7 @@ def pos2ano(pos,gtfFile,faFile):
     sSeq=getSeq(chr,start-2,start,faFile)
     eSeq=getSeq(chr,end+1,end+3,faFile)
     motifSeq=sSeq+eSeq
-    strand=''
+    strand='.'
     if motifSeq=='ACCT' or motifSeq=='GCCT' or motifSeq=='ATGT':
         strand='-'
     elif motifSeq=='AGGT' or motifSeq=='AGGC' or motifSeq=='ACAT':
