@@ -9,7 +9,7 @@ help:
 	@echo "clean-pyc - remove Python file artifacts"
 
 build:
-	python setup.py bdist_egg
+	python setup.py sdist bdist_egg
 
 install:
 	python setup.py install
@@ -22,6 +22,7 @@ clean-build:
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
+	find . -name 'record.txt' -exec rm -f {} +
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +

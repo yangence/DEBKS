@@ -19,6 +19,11 @@ Install latest release via conda
 conda install -c colinliuzelin DEBKS -c bioconda
 ```
 
+Install latest release via pip
+```
+pip install DEBKS
+```
+
 Install latest release from source codes
 ```
 git clone https://github.com/yangence/DEBKS.git
