@@ -171,4 +171,4 @@ Note: Option '--c2' and '-l' is mutually exclusive.
 
 ## Copyright and License Information
 
-Copyright (C) 2020 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/blob/master/LICENSE) file for license rights and limitations.
+Copyright (C) 2021 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/blob/master/LICENSE) file for license rights and limitations.
