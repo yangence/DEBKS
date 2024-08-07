@@ -162,18 +162,16 @@ def getGene(chr,start,end,gtfFile):
             if lenExon==1:
                 tmpS.append(start)
                 tmpE.append(end)
-            else:
-                for j in range(lenExon):
-                    if j==0:
-                        tmpS.append(start)
-                        tmpE.append(tmpTranArr[j][1])
-                    elif j==lenExon-1:
-                        tmpS.append(tmpTranArr[j][0])
-                        tmpE.append(end)
-                    else:
-                        tmpS.append(tmpTranArr[j][0])
-                        tmpE.append(tmpTranArr[j][1])
-            
+            for j in range(lenExon):
+                if j==0:
+                    tmpS.append(start)
+                    tmpE.append(tmpTranArr[j][1])
+                elif j==lenExon-1:
+                    tmpS.append(tmpTranArr[j][0])
+                    tmpE.append(end)
+                else:
+                    tmpS.append(tmpTranArr[j][0])
+                    tmpE.append(tmpTranArr[j][1])
             detailStart_arr.append(','.join([str(i+1) for i in tmpS]))
             detailEnd_arr.append(','.join([str(i) for i in tmpE]))
             detailLen_arr.append(sum(np.array(tmpE)-np.array(tmpS)))

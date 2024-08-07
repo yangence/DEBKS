@@ -1,5 +1,5 @@
 '''
-Usage: DEBKS dec -c circ (-l linear |--c2 circ2) [-p] [-n sample_num] [-f circRNA_filter] [-s sample_filter] [-t threads] [-d cutoff] [-r read_len] [-a hangover_len] [-e circ_len] [--e2 circ2_len] [-o output]
+Usage: DEBKS dec -c circ (-l linear |--c2 circ2) [-b] [-p] [-n sample_num] [-f circRNA_filter] [-s sample_filter] [-t threads] [-d cutoff] [-r read_len] [-a hangover_len] [-e circ_len] [--e2 circ2_len] [-o output]
 
 Options:
     -h --help                   Show help message.
@@ -7,6 +7,7 @@ Options:
     -c circ                     Circular junction counts file in tab format, the first three columns is circRNA position (chr,start,end).
     -l linear                   Linear junction counts file, the format is same with -c.
     --c2 circ2                  Circular junction counts file in tab format, the format is same with -c.
+    -b                          Used for long reads sequencing.
     -p                          Sample group is paired.
     -n sample_num               Number of samples in each group, separated by comma (e.g. 2,3).
     -f circRNA_filter           Required total circular juction counts in all samples to filter out low expressed circRNAs [default: 0].
@@ -126,7 +127,9 @@ def dec(options):
             tmp,adjust_inc_len=getCircLen(options['--e2'],circID2,adjustReadLength)
         else:
             adjust_inc_len=[2*adjustReadLength for i in range(circMat.shape[0])]
-    
+    if options['-b']:
+        adjust_inc_len=adjust_skp_len
+
     if filterNum>0:
         passID=filterCirc(circMat,filterNum)
         if len(passID)>0:
