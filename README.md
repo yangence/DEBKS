@@ -169,6 +169,33 @@ Note: Option '--c2' and '-l' is mutually exclusive.
 |P| the significance of delta_pbsi with user defined threshold|
 |FDR| Benjamini-Hochberg corrected FDR of the above P|
 
+
+### Import from CIRIquant
+To facilitate data preparation, DEBKS supports importing circular junction count (CJC) and linear junction count (LJC) matrices from CIRIquant results using the prep_DEBKS script. This script is adapted from CIRIquant and provided as an optional utility.
+
+**File Placement:**
+
+Place `scripts/prep_DEBKS.py` into the CIRIquant library directory (e.g., `lib/python2.7/site-packages/CIRIquant/`).
+Place `scripts/prep_DEBKS` into the CIRIquant bin directory.
+
+**Usage Example:**
+
+```bash
+Usage: prep_DEBKS [-h] -i FILE --lib FILE --circ FILE --bsj FILE --fsj FILE --ratio FILE
+
+Options:
+  -h, --help    show this help message and exit
+  -i FILE       input sample list
+  --lib FILE    output file of library information
+  --circ FILE   output file of circRNA annotation information (merge_pos.txt)
+  --bsj FILE    output file of circRNA bsj reads number (merge_circ.txt)
+  --fsj FILE    output file of FSJ reads number (merge_linear.txt)
+  --ratio FILE  output file of circRNA junction ratio matrix
+```
+
+merge_pos.txt can be then used for annotates circRNAs with circRNA position and predicts the potential circRNA length based on gene annotation file though "anno".
+merge_circ.txt and merge_linear.txt can be used for DEC dectection through "dec"
+
 ## Copyright and License Information
 
 Copyright (C) 2021 Zelin Liu (zlliu@bjmu.edu.cn). See the [LICENSE](https://github.com/yangence/DEBKS/blob/master/LICENSE) file for license rights and limitations.
